@@ -1,15 +1,27 @@
 // js/modules/identifyCat.js
-// Lida com upload, validação, chamada à Netlify Function e preenche a UI
+// Integra a UI do Identificador de Gatinhos com a Netlify Function (Gemini)
 
-(() => {
+export function initIdentifyCat() {
   const form = document.querySelector('#identify-cat form');
+  if (!form) return; // seção não está no DOM
+
   const fileInput = document.getElementById('cat-photo');
   const resultsBox = document.getElementById('identification-results');
   const ageEl = document.getElementById('result-age');
   const breedEl = document.getElementById('result-breed');
   const personalityEl = document.getElementById('result-personality');
 
-  // barra de feedback (usa a área de observação/alert se você tiver; aqui crio inline)
+  // 👉 cria o parágrafo "Observações" dinamicamente se não existir
+  let notesRow = resultsBox?.querySelector('[data-notes-row]');
+  if (!notesRow && resultsBox) {
+    notesRow = document.createElement('p');
+    notesRow.setAttribute('data-notes-row', '');
+    notesRow.innerHTML = `<strong>Observações:</strong> <span id="result-notes">--</span>`;
+    resultsBox.appendChild(notesRow);
+  }
+  const notesEl = document.getElementById('result-notes');
+
+  // feedback (mensagem abaixo do botão)
   let feedback = document.getElementById('identify-feedback');
   if (!feedback) {
     feedback = document.createElement('div');
@@ -18,12 +30,11 @@
     form.parentElement.insertBefore(feedback, form.nextSibling);
   }
 
-  // botão de submit dentro do form
   const submitBtn = form.querySelector('button[type="submit"]');
 
   const API_URL = '/.netlify/functions/identify-cat';
-  const MAX_MB = 8;
-  const SOFT_MB = 2;
+  const MAX_MB = 8;  // bloqueia acima de 8 MB
+  const SOFT_MB = 2; // alerta acima de 2 MB
 
   const setBtn = (loading) => {
     if (loading) {
@@ -32,7 +43,6 @@
       submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
     } else {
       submitBtn.textContent = 'Analisar Foto';
-      // habilita apenas se houver arquivo
       submitBtn.disabled = !(fileInput && fileInput.files && fileInput.files[0]);
       submitBtn.classList.toggle('opacity-50', submitBtn.disabled);
       submitBtn.classList.toggle('cursor-not-allowed', submitBtn.disabled);
@@ -53,6 +63,7 @@
     ageEl.textContent = '--';
     breedEl.textContent = '--';
     personalityEl.textContent = '--';
+    if (notesEl) notesEl.textContent = '--';
     resultsBox?.classList.add('hidden');
   };
 
@@ -75,7 +86,7 @@
       feedback.classList.add('hidden');
     }
 
-    setBtn(false); // reabilita
+    setBtn(false); // reabilita botão
   });
 
   // Submit
@@ -100,7 +111,7 @@
       showFeedback('Enviando imagem para análise...', 'info');
 
       const fd = new FormData();
-      // campo deve ser "data" (o backend espera este nome)
+      // o backend espera o campo "data"
       fd.append('data', f, f.name);
 
       const res = await fetch(API_URL, { method: 'POST', body: fd });
@@ -113,7 +124,7 @@
 
       const data = await res.json();
 
-      // Normaliza chaves (se por algum motivo vier EN)
+      // Normaliza chaves (pt/en)
       const result = {
         idade: data.idade || data.age || '--',
         racas: Array.isArray(data.racas) ? data.racas : Array.isArray(data.breeds) ? data.breeds : [],
@@ -125,11 +136,13 @@
         observacoes: data.observacoes || data.notes || '',
       };
 
+      // Preenche UI
       ageEl.textContent = result.idade || '--';
       breedEl.textContent = result.racas?.join(', ') || '--';
       personalityEl.textContent = result.personalidade?.join(', ') || '--';
-      resultsBox?.classList.remove('hidden');
+      if (notesEl) notesEl.textContent = result.observacoes || '--';
 
+      resultsBox?.classList.remove('hidden');
       showFeedback('Prontinho! Veja o resultado abaixo.', 'success');
     } catch (err) {
       console.error(err);
@@ -142,7 +155,7 @@
     }
   });
 
-  // Inicializa estado
+  // Estado inicial
   setBtn(false);
 
   async function safeReadText(res) {
@@ -152,4 +165,4 @@
       return '<no-body>';
     }
   }
-})();
+}
