@@ -1,0 +1,16 @@
+services:
+  n8n:
+    image: n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=4D0tE1g4t!NH0
+      - TZ=America/Sao_Paulo
+      - GOOGLE_API_KEY=AIzaSyB-JLVTLVWNznDc0qFFuu6ZTxYvGcVJNEs
+      - GOOGLE_CSE_ID=e67e158c09af54bc7
+      - SERPAPI_KEY=f8dc744bbacb23921eedbe6161d7b787496fca705536872e2c487da3f3742506
+    volumes:
+      - ./n8n_data:/home/node/.n8n

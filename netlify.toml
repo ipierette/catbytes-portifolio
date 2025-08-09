@@ -1,0 +1,16 @@
+[build]
+  # Seu site é estático (sem build). Se você tiver uma pasta "dist", mude aqui.
+  publish   = "."
+  functions = "netlify/functions"
+
+[functions]
+  # Usa o empacotador padrão (rápido). Não precisamos de libs nativas.
+  node_bundler = "esbuild"
+  # Mantém o runtime moderno (fetch nativo).
+  included_files = []
+  external_node_modules = []
+
+# Execução local (opcional) com `npx netlify dev`
+[dev]
+  framework = "#static"
+  publish   = "."

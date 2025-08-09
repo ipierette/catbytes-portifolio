@@ -1,867 +1,571 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Izadora Pierette - CatBytes Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="shortcut icon"
-      href="./images/favicon-icp-svg-pfundo-escuro.png"
-      type="image/x-icon"
-      sizes="124x124"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/responsive.css">
-  </head>
 
-  <body class="font-inter text-gray-800 bg-gray-50">
-    <header class="bg-gray-900 text-white p-4 shadow-lg sticky top-0 z-50">
-      <nav
-        class="container mx-auto flex justify-between items-center"
-        aria-label="Navegação Principal"
-      >
-        <a href="#" class="logo" aria-label="CatBytes - Voltar ao Início">
-          <img
-            src="./images/logo300x100-fundo-escuro.svg"
-            alt="ICP logo"
-            class="h-17 inline-block"
-            style="height: 73.7px"
-          />
-        </a>
-        <ul class="hidden md:flex space-x-6 items-center">
-          <li>
-            <a
-              href="#hero"
-              class="hover:text-purple-500 transition duration-300"
-              aria-current="page"
-              >Início</a
-            >
-          </li>
-          <li>
-            <a
-              href="#about"
-              class="hover:text-purple-500 transition duration-300"
-              >Sobre</a
-            >
-          </li>
-          <li>
-            <a
-              href="#skills"
-              class="hover:text-purple-500 transition duration-300"
-              >Skills</a
-            >
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="hover:text-purple-500 transition duration-300"
-              >Projetos</a
-            >
-          </li>
-          <li>
-            <a
-              href="#curiosities"
-              class="hover:text-purple-500 transition duration-300"
-              >Curiosidades</a
-            >
-          </li>
-          <li>
-            <a
-              href="#ai-features"
-              class="hover:text-purple-500 transition duration-300"
-              >IA Felina</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="hover:text-purple-500 transition duration-300"
-              >Contato</a
-            >
-          </li>
-          <li>
-            <button
-              id="theme-toggle"
-              class="text-white text-xl p-2 rounded-full hover:bg-gray-700 transition duration-300 focus:outline-none"
-              aria-label="Alternar tema claro/escuro"
-            >
-              <i id="theme-icon" class="fas fa-moon"></i>
-            </button>
-          </li>
-        </ul>
-        <div class="md:hidden flex items-center space-x-4">
-          <button
-            id="theme-toggle-mobile"
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Izadora Pierette - CatBytes Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="./images/favicon-icp-svg-pfundo-escuro.png" type="image/x-icon" sizes="124x124" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body class="font-inter text-gray-800 bg-gray-50">
+  <header class="bg-gray-900 text-white p-4 shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto flex justify-between items-center" aria-label="Navegação Principal">
+      <a href="#" class="logo" aria-label="CatBytes - Voltar ao Início">
+        <img src="./images/logo300x100-fundo-escuro.svg" alt="ICP logo" class="h-17 inline-block"
+          style="height: 73.7px" />
+      </a>
+      <ul class="hidden md:flex space-x-6 items-center">
+        <li>
+          <a href="#hero" class="hover:text-purple-500 transition duration-300" aria-current="page">Início</a>
+        </li>
+        <li>
+          <a href="#about" class="hover:text-purple-500 transition duration-300">Sobre</a>
+        </li>
+        <li>
+          <a href="#skills" class="hover:text-purple-500 transition duration-300">Skills</a>
+        </li>
+        <li>
+          <a href="#projects" class="hover:text-purple-500 transition duration-300">Projetos</a>
+        </li>
+        <li>
+          <a href="#curiosities" class="hover:text-purple-500 transition duration-300">Curiosidades</a>
+        </li>
+        <li>
+          <a href="#ai-features" class="hover:text-purple-500 transition duration-300">IA Felina</a>
+        </li>
+        <li>
+          <a href="#contact" class="hover:text-purple-500 transition duration-300">Contato</a>
+        </li>
+        <li>
+          <button id="theme-toggle"
             class="text-white text-xl p-2 rounded-full hover:bg-gray-700 transition duration-300 focus:outline-none"
-            aria-label="Alternar tema claro/escuro (mobile)"
-          >
-            <i id="theme-icon-mobile" class="fas fa-moon"></i>
+            aria-label="Alternar tema claro/escuro">
+            <i id="theme-icon" class="fas fa-moon"></i>
           </button>
-          <button
-            id="menu-toggle"
-            class="text-white focus:outline-none"
-            aria-label="Abrir/Fechar menu de navegação"
-          >
-            <i class="fas fa-bars text-2xl"></i>
-          </button>
-        </div>
-      </nav>
-      <ul
-        id="mobile-menu"
-        class="hidden md:hidden flex flex-col items-center space-y-4 mt-4 bg-gray-800 p-4 rounded-lg"
-        aria-label="Menu de Navegação Mobile"
-      >
-        <li>
-          <a
-            href="#hero"
-            class="block py-2 hover:text-purple-500 transition duration-300"
-            >Início</a
-          >
-        </li>
-        <li>
-          <a
-            href="#about"
-            class="block py-2 hover:text-purple-500 transition duration-300"
-            >Sobre</a
-          >
-        </li>
-        <li>
-          <a
-            href="#skills"
-            class="block py-2 hover:text-purple-500 transition duration-300"
-            >Skills</a
-          >
-        </li>
-        <li>
-          <a
-            href="#projects"
-            class="block py-2 hover:text-purple-500 transition duration-300"
-            >Projetos</a
-          >
-        </li>
-        <li>
-          <a
-            href="#curiosities"
-            class="block py-2 hover:text-purple-500 transition duration-300"
-            >Curiosidades</a
-          >
-        </li>
-        <li>
-          <a
-            href="#ai-features"
-            class="block py-2 hover:text-purple-500 transition duration-300"
-            >IA Felina</a
-          >
-        </li>
-        <li>
-          <a
-            href="#contact"
-            class="block py-2 hover:text-purple-500 transition duration-300"
-            >Contato</a
-          >
         </li>
       </ul>
-    </header>
+      <div class="md:hidden flex items-center space-x-4">
+        <button id="theme-toggle-mobile"
+          class="text-white text-xl p-2 rounded-full hover:bg-gray-700 transition duration-300 focus:outline-none"
+          aria-label="Alternar tema claro/escuro (mobile)">
+          <i id="theme-icon-mobile" class="fas fa-moon"></i>
+        </button>
+        <button id="menu-toggle" class="text-white focus:outline-none" aria-label="Abrir/Fechar menu de navegação">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </nav>
+    <ul id="mobile-menu" class="hidden md:hidden flex flex-col items-center space-y-4 mt-4 bg-gray-800 p-4 rounded-lg"
+      aria-label="Menu de Navegação Mobile">
+      <li>
+        <a href="#hero" class="block py-2 hover:text-purple-500 transition duration-300">Início</a>
+      </li>
+      <li>
+        <a href="#about" class="block py-2 hover:text-purple-500 transition duration-300">Sobre</a>
+      </li>
+      <li>
+        <a href="#skills" class="block py-2 hover:text-purple-500 transition duration-300">Skills</a>
+      </li>
+      <li>
+        <a href="#projects" class="block py-2 hover:text-purple-500 transition duration-300">Projetos</a>
+      </li>
+      <li>
+        <a href="#curiosities" class="block py-2 hover:text-purple-500 transition duration-300">Curiosidades</a>
+      </li>
+      <li>
+        <a href="#ai-features" class="block py-2 hover:text-purple-500 transition duration-300">IA Felina</a>
+      </li>
+      <li>
+        <a href="#contact" class="block py-2 hover:text-purple-500 transition duration-300">Contato</a>
+      </li>
+    </ul>
+  </header>
 
-    <div
-      id="scroll-progress-bar"
-      role="progressbar"
-      aria-valuenow="0"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-label="Progresso de rolagem da página"
-    ></div>
+  <div id="scroll-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+    aria-label="Progresso de rolagem da página"></div>
 
-    <main>
-  <section
-  id="hero"
-  class="relative overflow-hidden section-animated"
-  aria-labelledby="hero-title"
->
-  <div id="particles-js"></div>
+  <main>
+    <section id="hero" class="relative overflow-hidden section-animated" aria-labelledby="hero-title">
+      <div id="particles-js"></div>
 
-  <div class="hero-text-container">
-    <h1
-      id="hero-title"
-      class="text-5xl md:text-7xl font-comfortaa font-bold leading-tight drop-shadow-lg"
-    >
-      Bem-vindo ao Mundo
-      <span class="catbytes-gradient animate-gradient font-extrabold px-2">CatBytes</span>
-    </h1>
-    <p class="mt-4 text-lg md:text-2xl font-light">
-      Onde a paixão felina encontra o código impecável. Transformando
-      ideias em soluções digitais, um miaucódigo por vez.
-    </p>
-    <a
-      href="#projects"
-      class="mt-8 inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
-      aria-label="Conheça meus projetos"
-    >
-      Conheça meus projetos miau<i class="fas fa-paw ml-2"></i>
-    </a>
-  </div>
+      <div class="hero-text-container">
+        <h1 id="hero-title" class="text-5xl md:text-7xl font-comfortaa font-bold leading-tight drop-shadow-lg">
+          Bem-vindo ao Mundo
+          <span class="catbytes-gradient animate-gradient font-extrabold px-2">CatBytes</span>
+        </h1>
+        <p class="mt-4 text-lg md:text-2xl font-light">
+          Onde a paixão felina encontra o código impecável. Transformando
+          ideias em soluções digitais, um miaucódigo por vez.
+        </p>
+        <a href="#projects"
+          class="mt-8 inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
+          aria-label="Conheça meus projetos">
+          Conheça meus projetos miau<i class="fas fa-paw ml-2"></i>
+        </a>
+      </div>
 
-  <div class="hero-image-container relative">
-    <img src="./images/gato-sentado.webp" alt="gato sentado" class="mx-auto" />
-    <div id="cat-hover-area" aria-hidden="true"></div>
-    <div id="cat-popup" class="cat-popup typing-effect" role="status" aria-live="polite">
-      <p></p>
-    </div>
-  </div>
-</section>
-
-      <section id="about" class="py-16 section-animated bg-texture-1" aria-labelledby="Sobre mim">
-        <div class="container mx-auto px-6 text-center">
-          <h2
-            id="about-title"
-            class="text-4xl font-comfortaa font-bold mb-8"
-          >
-            A Toca do Desenvolvedor
-            <i class="fas fa-cat text-green-500 ml-2"></i>
-          </h2>
-          <div class="flex flex-col md:flex-row items-center md:space-x-8">
-            <div class="md:w-1/3 mb-8 md:mb-0">
-              <img
-                src="./images/izadora.webp"
-                alt="Foto de perfil de Izadora Pierette"
-                class="rounded-full shadow-lg mx-auto w-48 h-48 object-cover border-4 border-green-400"
-              />
-            </div>
-            <div class="md:w-2/3 text-left">
-              <p class="text-lg leading-relaxed mb-4">
-                Olá! Sou Izadora Pierette, uma desenvolvedora apaixonada por
-                criar soluções digitais inovadoras e eficientes. Minha jornada
-                no mundo da programação começou com a curiosidade de desvendar
-                como as coisas funcionam por trás das telas, e desde então,
-                tenho me dedicado a transformar ideias complexas em interfaces
-                intuitivas e funcionais.
-              </p>
-              <p class="text-lg leading-relaxed">
-                Com foco em HTML, CSS avançado e JavaScript, busco sempre as
-                melhores práticas de clean code para entregar projetos de alta
-                qualidade. Acredito que, assim como um gato perspicaz, a
-                tecnologia exige atenção aos detalhes, agilidade e uma pitada de
-                criatividade para resolver os desafios mais intrigantes.
-              </p>
-              <div
-                class="mt-6 flex justify-center md:justify-start space-x-4"
-                aria-label="Ícones de habilidades e interesses"
-              >
-                <i
-                  class="fas fa-code text-green-500 text-3xl"
-                  title="Programação"
-                  aria-hidden="true"
-                ></i>
-                <i
-                  class="fas fa-laptop-code text-blue-500 text-3xl"
-                  title="Desenvolvimento Web"
-                  aria-hidden="true"
-                ></i>
-                <i
-                  class="fas fa-mug-hot text-orange-500 text-3xl"
-                  title="Café e Criatividade"
-                  aria-hidden="true"
-                ></i>
-                <i
-                  class="fas fa-book-open text-purple-500 text-3xl"
-                  title="Aprendizado Contínuo"
-                  aria-hidden="true"
-                ></i>
-              </div>
-            </div>
-          </div>
+      <div class="hero-image-container relative">
+        <img src="./images/gato-sentado.webp" alt="gato sentado" class="mx-auto" />
+        <div id="cat-hover-area" aria-hidden="true"></div>
+        <div id="cat-popup" class="cat-popup typing-effect" role="status" aria-live="polite">
+          <p></p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="skills" class="py-16 section-animated bg-gradient-section" aria-labelledby="Minhas habilidades">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title">Skills</h2>
-            <p class="section-desc">
-              Minhas habilidades são classificadas em "Níveis de Miado", uma
-              analogia divertida à proficiência no mundo felino e da programação.
+    <section id="about" class="py-16 section-animated bg-texture-1" aria-labelledby="Sobre mim">
+      <div class="container mx-auto px-6 text-center">
+        <h2 id="about-title" class="text-4xl font-comfortaa font-bold mb-8">
+          A Toca do Desenvolvedor
+          <i class="fas fa-cat text-green-500 ml-2"></i>
+        </h2>
+        <div class="flex flex-col md:flex-row items-center md:space-x-8">
+          <div class="md:w-1/3 mb-8 md:mb-0">
+            <img src="./images/izadora.webp" alt="Foto de perfil de Izadora Pierette"
+              class="rounded-full shadow-lg mx-auto w-48 h-48 object-cover border-4 border-green-400" />
+          </div>
+          <div class="md:w-2/3 text-left">
+            <p class="text-lg leading-relaxed mb-4">
+              Olá! Sou Izadora Pierette, uma desenvolvedora apaixonada por
+              criar soluções digitais inovadoras e eficientes. Minha jornada
+              no mundo da programação começou com a curiosidade de desvendar
+              como as coisas funcionam por trás das telas, e desde então,
+              tenho me dedicado a transformar ideias complexas em interfaces
+              intuitivas e funcionais.
             </p>
-
-            <div id="skills-carousel-container" class="skills-carousel-container">
-                <button id="prev-skill" class="carousel-btn prev" aria-label="Habilidades anteriores">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="skills-carousel-wrapper">
-                    <div id="skills-carousel" class="skills-carousel">
-                        </div>
-                </div>
-                <button id="next-skill" class="carousel-btn next" aria-label="Próximas habilidades">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <div class="miado-levels-info">
-                <h3 class="text-2xl font-comfortaa font-bold mb-4">
-                    Níveis de Miado: Entenda Minha Proficiência
-                </h3>
-                <p class="mb-4">
-                    Para tornar a avaliação das minhas habilidades mais divertida e temática, utilizei os "Níveis de Miado" como uma forma de indicar minha proficiência em cada área, os valores percentuais não mostram o total do meu conhecimento (até porque sempre há algo novo para aprender, invalidando a possibilidade de saber 100% sobre determinado tema) demonstra, no entanto, uma estimativa de tempo que demandei desenvolvendo cada habilidade ao longo de 4 anos:
-                </p>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>Ronronado Iniciante (Básico):</strong> Conhecimento fundamental, capaz de realizar tarefas simples e aprender rapidamente, nivel de aprendizagem entre 1%-40%</li>
-                    <li><strong>Miado Intermediário (Mediano):</strong> Boa compreensão e capacidade de aplicar conceitos em projetos mais complexos, com alguma autonomia, nível de aprendizagem entre 41%-70%.</li>
-                    <li><strong>Gato Mestre (Avançado):</strong> Sólida experiência, capaz de resolver problemas desafiadores e otimizar soluções, nível de aprendizagem entre 71%-99%.</li>
-                    <li><strong>Miaucódigo Mestre (Especialista):</strong> Expertise na área, apto a liderar projetos, inovar e atuar como referência, nível de aprendizagem de 100%</li>
-                </ul>
-                <p class="mt-4">
-                    Assim como um gato aprende e aprimora suas habilidades de caça e socialização, eu busco constantemente evoluir no mundo do desenvolvimento!
-                </p>
-            </div>
-        </div>
-      </section>
-
-      <section id="projects" class="py-16 section-animated bg-texture-1" aria-labelledby="Meus Projetos">
-        <div class="container mx-auto px-6 text-center">
-          <h2 id="projects-title" class="text-4xl font-comfortaa font-bold mb-12">
-            A Caça aos Projetos
-            <i class="fas fa-lightbulb text-green-500 ml-2"></i>
-          </h2>
-
-          <div class="project-gallery bg-white p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center">
-            <div class="project-image-container md:w-1/2 mb-6 md:mb-0 md:mr-6">
-              <img
-                id="project-image"
-                src="https://placehold.co/600x400/36454F/FFFFFF?text=Projeto+1"
-                alt="Imagem do Projeto Destacado"
-                class="rounded-lg shadow-md w-full h-auto object-cover"
-              />
-            </div>
-            <div class="project-details md:w-1/2 text-left">
-              <h3 id="project-title" class="text-3xl font-comfortaa font-bold text-gray-800 mb-4">
-                Nome do Projeto 1
-              </h3>
-              <p id="project-description" class="text-lg text-gray-700 leading-relaxed mb-4">
-                Uma breve descrição do Projeto 1. Este projeto demonstra minhas
-                habilidades em HTML, CSS e JavaScript, focando em responsividade
-                e interatividade.
-              </p>
-              <div class="project-links space-x-4">
-                <a
-                  href="#"
-                  class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                  aria-label="Ver projeto ao vivo"
-                >
-                  <i class="fas fa-eye mr-2" aria-hidden="true"></i> Ver Projeto
-                </a>
-                <a
-                  href="#"
-                  class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                  aria-label="Ver código do projeto no GitHub"
-                >
-                  <i class="fab fa-github mr-2" aria-hidden="true"></i> Código
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-navigation mt-8 flex justify-center items-center space-x-4" aria-label="Navegação de projetos">
-            <button
-              id="prev-project"
-              class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110"
-              aria-label="Projeto anterior"
-            >
-              <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
-            </button>
-            <div id="project-dots" class="flex space-x-2" role="group" aria-label="Indicadores de projeto"></div>
-            <button
-              id="next-project"
-              class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110"
-              aria-label="Próximo projeto"
-            >
-              <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="curiosities" class="py-16 section-animated bg-gradient-section" aria-labelledby="curiosidades">
-        <div class="container mx-auto px-6 text-center">
-          <h2 id="curiosities-title" class="text-4xl font-comfortaa font-bold mb-12">
-            O Gato Além do Teclado
-            <i class="fas fa-heart text-red-500 ml-2"></i>
-          </h2>
-          <div class="flex flex-col md:flex-row items-center md:space-x-8">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-              <img
-                src="./images/axel-filhote.webp"
-                alt="Foto de Axel quando filhote"
-                class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover mb-4 border-4 border-purple-500"
-                loading="lazy"
-              />
-              <img
-                src="./images/axel-adulto.webp"
-                alt="Foto de Axel adulto"
-                class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover border-4 border-green-400"
-                loading="lazy"
-              />
-            </div>
-            <div class="md:w-1/2 text-left">
-              <p class="text-lg leading-relaxed mb-4">
-                Há três anos, minha vida mudou de uma forma que eu jamais
-                esperava. Encontrei um pequeno gatinho de apenas um mês, sozinho
-                e encharcado pela chuva na frente da minha casa. Eu não tinha
-                planos de adotar um pet, mas aquele olhar minúsculo e
-                desamparado me convenceu. Ele se tornou o Axel, e desde então,
-                tem sido uma jornada de amor, aprendizado e, claro, alguns
-                desafios felinos.
-              </p>
-              <p class="text-lg leading-relaxed mb-4">
-                Criar o Axel me ensinou muito sobre paciência e resiliência.
-                Lembro-me dos dias em que ele, filhote, mordia tudo e todos com
-                suas garrinhas afiadas – um verdadeiro teste para a minha calma!
-                Mas, com tempo e dedicação, ele se tornou o companheiro mais
-                carinhoso e brincalhão que eu poderia desejar.
-              </p>
-              <p class="text-lg leading-relaxed">
-                Essa experiência me fez refletir sobre minha própria jornada
-                como desenvolvedora. Assim como é difícil aprender uma nova
-                linguagem de programação, enfrentar bugs ou dominar uma nova
-                ferramenta, criar um gato também exige persistência e adaptação.
-                Há momentos de frustração, mas a recompensa de ver um projeto
-                funcionando ou o Axel ronronando no meu colo é inumerável. Cada
-                desafio me impulsionou a aprender e crescer, transformando
-                obstáculos em novas habilidades, tanto na vida quanto no código.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="ai-features" class="py-16 section-animated bg-texture-1" aria-labelledby="funcionalidades-ia-felina">
-        <div class="container mx-auto px-6 text-center">
-          <h2 id="ai-features-title" class="text-4xl font-comfortaa font-bold mb-12">
-            IA Felina: Ferramentas Inteligentes
-            <i class="fas fa-robot text-green-500 ml-2"></i>
-          </h2>
-
-          <div class="ai-tabs bg-white p-6 rounded-lg shadow-xl">
-            <div
-              class="flex justify-center border-b border-gray-200 mb-6"
-              role="tablist"
-            >
-              <button
-                class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-green-500 hover:text-green-500 transition duration-300 active-tab"
-                data-tab="adopt-cat"
-                role="tab"
-                aria-selected="true"
-                aria-controls="adopt-cat"
-              >
-                Adote um Gatinho
-              </button>
-              <button
-                class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-purple-500 hover:text-purple-500 transition duration-300"
-                data-tab="identify-cat"
-                role="tab"
-                aria-selected="false"
-                aria-controls="identify-cat"
-              >
-                Identificador de Gatinhos
-              </button>
-              <button
-                class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-orange-500 hover:text-orange-500 transition duration-300"
-                data-tab="donate-ad"
-                role="tab"
-                aria-selected="false"
-                aria-controls="donate-ad"
-              >
-                Precisa Doar um Gatinho?
-              </button>
-            </div>
-
-            <div
-              id="adopt-cat"
-              class="tab-content active-content p-4"
-              role="tabpanel"
-              aria-labelledby="adopt-cat-tab"
-            >
-              <h3
-                id="adopt-cat-tab"
-                class="text-2xl font-comfortaa font-bold text-gray-800 mb-4"
-              >
-                Adote um Gatinho
-                <i
-                  class="fas fa-home text-blue-500 ml-2"
-                  aria-hidden="true"
-                ></i>
-              </h3>
-              <p class="text-lg text-gray-700 mb-6">
-                Informe a idade, cor do pelo e sua localidade para que nossa IA
-                possa buscar anúncios de gatos para adoção próximos a você.
-              </p>
-              <div
-                class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-lg"
-                role="alert"
-              >
-                <p class="font-bold">Observação:</p>
-                <p>
-                  Esta funcionalidade de busca por anúncios de adoção foi implementada utilizando automação com n8n porém atualmente existem limitaçães.<br>
-                  Um banco de dados real de anúncios está sendo compilado e atualizado via scraping, api e manualmente. Buscas mais precisas estarão disponíveis no futuro!.<br>
-                  O score de confiabilidade da IA não está 100% funcional pois os anúncios ainda não são precisos.
-                </p>
-              </div>
-              <form class="mt-6 space-y-4">
-                <div>
-                  <label
-                    for="cat-age"
-                    class="block text-gray-700 text-sm font-bold mb-2"
-                    >Idade:</label
-                  >
-                  <select
-                    id="cat-age"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    aria-required="true"
-                  >
-                    <option value="">Selecione</option>
-                    <option value="filhote">Filhote</option>
-                    <option value="adulto">Adulto</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    for="cat-color"
-                    class="block text-gray-700 text-sm font-bold mb-2"
-                    >Cor do Pelo:</label
-                  >
-                  <input
-                    type="text"
-                    id="cat-color"
-                    placeholder="Ex: Rajado, Preto, Branco"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="cat-location"
-                    class="block text-gray-700 text-sm font-bold mb-2"
-                    >Localização (Cidade/Estado ou CEP):</label
-                  >
-                  <input
-                    type="text"
-                    id="cat-location"
-                    placeholder="Ex: São Paulo, SP ou 01000-000"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed"
-                  disabled
-                  aria-label="Buscar gatinhos para adoção"
-                >
-                  Buscar Gatinhos
-                  <i class="fas fa-search ml-2" aria-hidden="true"></i>
-                </button>
-              </form>
-            </div>
-
-            <div
-              id="identify-cat"
-              class="tab-content p-4 hidden"
-              role="tabpanel"
-              aria-labelledby="identify-cat-tab"
-            >
-              <h3
-                id="identify-cat-tab"
-                class="text-2xl font-comfortaa font-bold text-gray-800 mb-4"
-              >
-                Identificador de Gatinhos
-                <i
-                  class="fas fa-camera-retro text-purple-500 ml-2"
-                  aria-hidden="true"
-                ></i>
-              </h3>
-              <p class="text-lg text-gray-700 mb-6">
-                Faça o upload de uma foto do gatinho e nossa IA tentará
-                identificar sua idade aproximada, raça e traços de
-                personalidade.
-              </p>
-              <div
-                class="bg-purple-100 border-l-4 border-purple-500 text-purple-700 p-4 rounded-lg"
-                role="alert"
-              >
-                <p class="font-bold">Observação:</p>
-                <p>
-                  Nossa IA para identificação de raça, idade e personalidade de
-                  gatinhos a partir de fotos está em fase de treinamento e será
-                  disponibilizada em breve. Imagine descobrir os segredos do seu
-                  felino com apenas uma foto!
-                </p>
-              </div>
-              <form class="mt-6">
-                <label
-                  for="cat-photo"
-                  class="block text-gray-700 text-sm font-bold mb-2"
-                  >Upload da Foto:</label
-                >
-                <input
-                  type="file"
-                  id="cat-photo"
-                  accept="image/*"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-                <button
-                  type="submit"
-                  class="mt-4 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed"
-                  disabled
-                  aria-label="Analisar foto do gatinho"
-                >
-                  Analisar Foto
-                  <i class="fas fa-brain ml-2" aria-hidden="true"></i>
-                </button>
-              </form>
-              <div
-                id="identification-results"
-                class="mt-6 p-4 bg-gray-50 rounded-lg hidden"
-                aria-live="polite"
-              >
-                <h4 class="text-xl font-semibold mb-2">
-                  Resultados da Análise:
-                </h4>
-                <p>
-                  <strong>Idade Aproximada:</strong>
-                  <span id="result-age">--</span>
-                </p>
-                <p>
-                  <strong>Raça Potencial:</strong>
-                  <span id="result-breed">--</span>
-                </p>
-                <p>
-                  <strong>Traços de Personalidade:</strong>
-                  <span id="result-personality">--</span>
-                </p>
-              </div>
-            </div>
-
-            <div
-              id="donate-ad"
-              class="tab-content p-4 hidden"
-              role="tabpanel"
-              aria-labelledby="donate-ad-tab"
-            >
-              <h3
-                id="donate-ad-tab"
-                class="text-2xl font-comfortaa font-bold text-gray-800 mb-4"
-              >
-                Precisa Doar um Gatinho? Gere um Anúncio!
-                <i
-                  class="fas fa-bullhorn text-orange-500 ml-2"
-                  aria-hidden="true"
-                ></i>
-              </h3>
-              <p class="text-lg text-gray-700 mb-6">
-                Descreva o gatinho que você precisa doar e nossa IA gerará um
-                texto atraente para o anúncio.
-              </p>
-              <div class="mt-6">
-                <label
-                  for="cat-description"
-                  class="block text-gray-700 text-sm font-bold mb-2"
-                  >Descreva o Gatinho:</label
-                >
-                <textarea
-                  id="cat-description"
-                  rows="6"
-                  placeholder="Ex: Gatinho filhote, macho, 3 meses, pelagem preta e branca, muito dócil e brincalhão. Adora carinho e se dá bem com crianças e outros pets. Precisa de um lar urgente!"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                ></textarea>
-                <button
-                  id="generate-ad-btn"
-                  class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                  aria-label="Gerar anúncio para doação de gatinho"
-                >
-                  Gerar Anúncio
-                  <i class="fas fa-magic ml-2" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div
-                id="generated-ad-container"
-                class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 hidden"
-              >
-                <h4 class="text-xl font-semibold mb-2">Anúncio Gerado:</h4>
-                <p
-                  id="generated-ad-text"
-                  class="text-gray-800 leading-relaxed whitespace-pre-wrap"
-                ></p>
-                <button
-                  id="copy-ad-btn"
-                  class="mt-4 bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                  aria-label="Copiar anúncio gerado"
-                >
-                  Copiar Anúncio
-                  <i class="fas fa-copy ml-2" aria-hidden="true"></i>
-                </button>
-                <div
-                  id="copy-message"
-                  class="text-green-600 mt-2 hidden"
-                  aria-live="polite"
-                >
-                  Copiado!
-                </div>
-              </div>
-              <div
-                id="loading-indicator"
-                class="mt-4 text-center text-gray-600 hidden"
-                role="status"
-                aria-live="assertive"
-              >
-                <i class="fas fa-spinner fa-spin mr-2" aria-hidden="true"></i>
-                Gerando anúncio...
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="py-16 section-animated bg-gradient-section" aria-labelledby="contato">
-        <div class="container mx-auto px-6 text-center">
-          <h2 id="contact-title" class="text-4xl font-comfortaa font-bold text-green-400 mb-12">
-            Me Encontre na Caixa de Papelão Digital
-            <i
-              class="fas fa-box-open text-gray-400 ml-2"
-              aria-hidden="true"
-            ></i>
-          </h2>
-          <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-xl">
-            <p class="text-lg mb-6">
-              Pronto para transformar suas ideias em realidade? Entre em contato
-              e vamos construir algo incrível juntos!
+            <p class="text-lg leading-relaxed">
+              Com foco em HTML, CSS avançado e JavaScript, busco sempre as
+              melhores práticas de clean code para entregar projetos de alta
+              qualidade. Acredito que, assim como um gato perspicaz, a
+              tecnologia exige atenção aos detalhes, agilidade e uma pitada de
+              criatividade para resolver os desafios mais intrigantes.
             </p>
-            <form
-              id="contact-form"
-              class="space-y-6"
-              aria-label="Formulário de Contato"
-              action="https://formspree.io/f/xzzvbyvv"
-              method="POST"
-            >
+            <div class="mt-6 flex justify-center md:justify-start space-x-4"
+              aria-label="Ícones de habilidades e interesses">
+              <i class="fas fa-code text-green-500 text-3xl" title="Programação" aria-hidden="true"></i>
+              <i class="fas fa-laptop-code text-blue-500 text-3xl" title="Desenvolvimento Web" aria-hidden="true"></i>
+              <i class="fas fa-mug-hot text-orange-500 text-3xl" title="Café e Criatividade" aria-hidden="true"></i>
+              <i class="fas fa-book-open text-purple-500 text-3xl" title="Aprendizado Contínuo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-16 section-animated bg-gradient-section" aria-labelledby="Minhas habilidades">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-desc">
+          Minhas habilidades são classificadas em "Níveis de Miado", uma
+          analogia divertida à proficiência no mundo felino e da programação.
+        </p>
+
+        <div id="skills-carousel-container" class="skills-carousel-container">
+          <button id="prev-skill" class="carousel-btn prev" aria-label="Habilidades anteriores">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="skills-carousel-wrapper">
+            <div id="skills-carousel" class="skills-carousel">
+            </div>
+          </div>
+          <button id="next-skill" class="carousel-btn next" aria-label="Próximas habilidades">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="miado-levels-info">
+          <h3 class="text-2xl font-comfortaa font-bold mb-4">
+            Níveis de Miado: Entenda Minha Proficiência
+          </h3>
+          <p class="mb-4">
+            Para tornar a avaliação das minhas habilidades mais divertida e temática, utilizei os "Níveis de Miado" como
+            uma forma de indicar minha proficiência em cada área, os valores percentuais não mostram o total do meu
+            conhecimento (até porque sempre há algo novo para aprender, invalidando a possibilidade de saber 100% sobre
+            determinado tema) demonstra, no entanto, uma estimativa de tempo que demandei desenvolvendo cada habilidade
+            ao longo de 4 anos:
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong>Ronronado Iniciante (Básico):</strong> Conhecimento fundamental, capaz de realizar tarefas
+              simples e aprender rapidamente, nivel de aprendizagem entre 1%-40%</li>
+            <li><strong>Miado Intermediário (Mediano):</strong> Boa compreensão e capacidade de aplicar conceitos em
+              projetos mais complexos, com alguma autonomia, nível de aprendizagem entre 41%-70%.</li>
+            <li><strong>Gato Mestre (Avançado):</strong> Sólida experiência, capaz de resolver problemas desafiadores e
+              otimizar soluções, nível de aprendizagem entre 71%-99%.</li>
+            <li><strong>Miaucódigo Mestre (Especialista):</strong> Expertise na área, apto a liderar projetos, inovar e
+              atuar como referência, nível de aprendizagem de 100%</li>
+          </ul>
+          <p class="mt-4">
+            Assim como um gato aprende e aprimora suas habilidades de caça e socialização, eu busco constantemente
+            evoluir no mundo do desenvolvimento!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16 section-animated bg-texture-1" aria-labelledby="Meus Projetos">
+      <div class="container mx-auto px-6 text-center">
+        <h2 id="projects-title" class="text-4xl font-comfortaa font-bold mb-12">
+          A Caça aos Projetos
+          <i class="fas fa-lightbulb text-green-500 ml-2"></i>
+        </h2>
+
+        <div class="project-gallery bg-white p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center">
+          <div class="project-image-container md:w-1/2 mb-6 md:mb-0 md:mr-6">
+            <img id="project-image" src="https://placehold.co/600x400/36454F/FFFFFF?text=Projeto+1"
+              alt="Imagem do Projeto Destacado" class="rounded-lg shadow-md w-full h-auto object-cover" />
+          </div>
+          <div class="project-details md:w-1/2 text-left">
+            <h3 id="project-title" class="text-3xl font-comfortaa font-bold text-gray-800 mb-4">
+              Nome do Projeto 1
+            </h3>
+            <p id="project-description" class="text-lg text-gray-700 leading-relaxed mb-4">
+              Uma breve descrição do Projeto 1. Este projeto demonstra minhas
+              habilidades em HTML, CSS e JavaScript, focando em responsividade
+              e interatividade.
+            </p>
+            <div class="project-links space-x-4">
+              <a href="#"
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300"
+                aria-label="Ver projeto ao vivo">
+                <i class="fas fa-eye mr-2" aria-hidden="true"></i> Ver Projeto
+              </a>
+              <a href="#"
+                class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full transition duration-300"
+                aria-label="Ver código do projeto no GitHub">
+                <i class="fab fa-github mr-2" aria-hidden="true"></i> Código
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-navigation mt-8 flex justify-center items-center space-x-4"
+          aria-label="Navegação de projetos">
+          <button id="prev-project"
+            class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110"
+            aria-label="Projeto anterior">
+            <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
+          </button>
+          <div id="project-dots" class="flex space-x-2" role="group" aria-label="Indicadores de projeto"></div>
+          <button id="next-project"
+            class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110"
+            aria-label="Próximo projeto">
+            <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="curiosities" class="py-16 section-animated bg-gradient-section" aria-labelledby="curiosidades">
+      <div class="container mx-auto px-6 text-center">
+        <h2 id="curiosities-title" class="text-4xl font-comfortaa font-bold mb-12">
+          O Gato Além do Teclado
+          <i class="fas fa-heart text-red-500 ml-2"></i>
+        </h2>
+        <div class="flex flex-col md:flex-row items-center md:space-x-8">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <img src="./images/axel-filhote.webp" alt="Foto de Axel quando filhote"
+              class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover mb-4 border-4 border-purple-500"
+              loading="lazy" />
+            <img src="./images/axel-adulto.webp" alt="Foto de Axel adulto"
+              class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover border-4 border-green-400" loading="lazy" />
+          </div>
+          <div class="md:w-1/2 text-left">
+            <p class="text-lg leading-relaxed mb-4">
+              Há três anos, minha vida mudou de uma forma que eu jamais
+              esperava. Encontrei um pequeno gatinho de apenas um mês, sozinho
+              e encharcado pela chuva na frente da minha casa. Eu não tinha
+              planos de adotar um pet, mas aquele olhar minúsculo e
+              desamparado me convenceu. Ele se tornou o Axel, e desde então,
+              tem sido uma jornada de amor, aprendizado e, claro, alguns
+              desafios felinos.
+            </p>
+            <p class="text-lg leading-relaxed mb-4">
+              Criar o Axel me ensinou muito sobre paciência e resiliência.
+              Lembro-me dos dias em que ele, filhote, mordia tudo e todos com
+              suas garrinhas afiadas – um verdadeiro teste para a minha calma!
+              Mas, com tempo e dedicação, ele se tornou o companheiro mais
+              carinhoso e brincalhão que eu poderia desejar.
+            </p>
+            <p class="text-lg leading-relaxed">
+              Essa experiência me fez refletir sobre minha própria jornada
+              como desenvolvedora. Assim como é difícil aprender uma nova
+              linguagem de programação, enfrentar bugs ou dominar uma nova
+              ferramenta, criar um gato também exige persistência e adaptação.
+              Há momentos de frustração, mas a recompensa de ver um projeto
+              funcionando ou o Axel ronronando no meu colo é inumerável. Cada
+              desafio me impulsionou a aprender e crescer, transformando
+              obstáculos em novas habilidades, tanto na vida quanto no código.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-features" class="py-16 section-animated bg-texture-1" aria-labelledby="funcionalidades-ia-felina">
+      <div class="container mx-auto px-6 text-center">
+        <h2 id="ai-features-title" class="text-4xl font-comfortaa font-bold mb-12">
+          IA Felina: Ferramentas Inteligentes
+          <i class="fas fa-robot text-green-500 ml-2"></i>
+        </h2>
+
+        <div class="ai-tabs bg-white p-6 rounded-lg shadow-xl">
+          <div class="flex justify-center border-b border-gray-200 mb-6" role="tablist">
+            <button
+              class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-green-500 hover:text-green-500 transition duration-300 active-tab"
+              data-tab="adopt-cat" role="tab" aria-selected="true" aria-controls="adopt-cat">
+              Adote um Gatinho
+            </button>
+            <button
+              class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-purple-500 hover:text-purple-500 transition duration-300"
+              data-tab="identify-cat" role="tab" aria-selected="false" aria-controls="identify-cat">
+              Identificador de Gatinhos
+            </button>
+            <button
+              class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-orange-500 hover:text-orange-500 transition duration-300"
+              data-tab="donate-ad" role="tab" aria-selected="false" aria-controls="donate-ad">
+              Precisa Doar um Gatinho?
+            </button>
+          </div>
+
+          <div id="adopt-cat" class="tab-content active-content p-4" role="tabpanel" aria-labelledby="adopt-cat-tab">
+            <h3 id="adopt-cat-tab" class="text-2xl font-comfortaa font-bold text-gray-800 mb-4">
+              Adote um Gatinho
+              <i class="fas fa-home text-blue-500 ml-2" aria-hidden="true"></i>
+            </h3>
+            <p class="text-lg text-gray-700 mb-6">
+              Informe a idade, cor do pelo e sua localidade para que nossa IA
+              possa buscar anúncios de gatos para adoção próximos a você.
+            </p>
+            <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-lg" role="alert">
+              <p class="font-bold">Observação:</p>
+              <p>
+                Esta funcionalidade de busca por anúncios de adoção foi implementada utilizando automação com n8n porém
+                atualmente existem limitaçães.<br>
+                Um banco de dados real de anúncios está sendo compilado e atualizado via scraping, api e manualmente.
+                Buscas mais precisas estarão disponíveis no futuro!.<br>
+                O score de confiabilidade da IA não está 100% funcional pois os anúncios ainda não são precisos.
+              </p>
+            </div>
+            <form class="mt-6 space-y-4">
               <div>
-                <label
-                  for="name"
-                  class="block text-gray-300 text-sm font-bold mb-2 text-left"
-                  >Nome:</label
-                >
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
-                  placeholder="Seu nome"
-                  required
-                />
+                <label for="cat-age" class="block text-gray-700 text-sm font-bold mb-2">Idade:</label>
+                <select id="cat-age"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  aria-required="true">
+                  <option value="">Selecione</option>
+                  <option value="filhote">Filhote</option>
+                  <option value="adulto">Adulto</option>
+                </select>
               </div>
               <div>
-                <label
-                  for="email"
-                  class="block text-gray-300 text-sm font-bold mb-2 text-left"
-                  >Email:</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
-                  placeholder="seu.email@exemplo.com"
-                  required
-                />
+                <label for="cat-color" class="block text-gray-700 text-sm font-bold mb-2">Cor do Pelo:</label>
+                <input type="text" id="cat-color" placeholder="Ex: Rajado, Preto, Branco"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
               </div>
               <div>
-                <label
-                  for="message"
-                  class="block text-gray-300 text-sm font-bold mb-2 text-left"
-                  >Mensagem:</label
-                >
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
-                  placeholder="Sua mensagem..."
-                  required
-                ></textarea>
+                <label for="cat-location" class="block text-gray-700 text-sm font-bold mb-2">Localização (Cidade/Estado
+                  ou CEP):</label>
+                <input type="text" id="cat-location" placeholder="Ex: São Paulo, SP ou 01000-000"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
               </div>
-               <div id="form-feedback" class="text-left"></div>
-              <button
-                type="submit"
-                id="submit-btn"
-                class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
-                aria-label="Enviar mensagem de contato"
-              >
-                Enviar Miaumensagem
-                <i class="fas fa-paper-plane ml-2" aria-hidden="true"></i>
+              <button type="submit"
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed"
+                disabled aria-label="Buscar gatinhos para adoção">
+                Buscar Gatinhos
+                <i class="fas fa-search ml-2" aria-hidden="true"></i>
               </button>
             </form>
-            <div
-              class="mt-8 flex justify-center space-x-6"
-              aria-label="Links para redes sociais e contato"
-            >
-              <a
-                href="https://www.linkedin.com/in/izadora-cury-pierette-7a7754253/"
-                target="_blank"
-                class="text-gray-300 hover:text-blue-400 transition duration-300 text-4xl"
-                title="LinkedIn"
-                aria-label="Perfil de Izadora Pierette no LinkedIn"
-              >
-                <i class="fab fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a
-                href="https://github.com/ipierette"
-                target="_blank"
-                class="text-gray-300 hover:text-purple-400 transition duration-300 text-4xl"
-                title="GitHub"
-                aria-label="Perfil de Izadora Pierette no GitHub"
-              >
-                <i class="fab fa-github" aria-hidden="true"></i>
-              </a>
-              <a
-                href="https://drive.google.com/file/d/1JY_hUoeiW-IVyCuJ9yg9CS63QZ3GZzDq/view?usp=drive_link"
-                target="_blank"
-                download="seu-curriculo-izadora.pdf"
-                class="text-gray-300 hover:text-red-400 transition duration-300 text-4xl"
-                title="Download Currículo"
-                aria-label="Download do currículo de Izadora Pierette"
-              >
-                <i class="fas fa-file-download" aria-hidden="true"></i>
-              </a>
+          </div>
+
+          <div id="identify-cat" class="tab-content p-4 hidden" role="tabpanel" aria-labelledby="identify-cat-tab">
+            <h3 id="identify-cat-tab" class="text-2xl font-comfortaa font-bold text-gray-800 mb-4">
+              Identificador de Gatinhos
+              <i class="fas fa-camera-retro text-purple-500 ml-2" aria-hidden="true"></i>
+            </h3>
+            <p class="text-lg text-gray-700 mb-6">
+              Faça o upload de uma foto do gatinho e nossa IA tentará
+              identificar sua idade aproximada, raça e traços de
+              personalidade.
+            </p>
+            <div class="bg-purple-100 border-l-4 border-purple-500 text-purple-700 p-4 rounded-lg" role="alert">
+              <p class="font-bold">Observação:</p>
+              <p>
+                Fallback: Como funciona: Processamos sua foto sob demanda via Netlify Function (modelo Gemini). A primeira chamada pode levar alguns segundos (inicialização).
+                Tamanhos: ideal 1–2 MB; máximo 8 MB. Formatos: JPG/PNG/WEBP.
+                Privacidade: a imagem é processada temporariamente para gerar o resultado e não é armazenada.
+                Limites e ética: os resultados são estimativas (idade aproximada, possíveis raças e indícios de
+                temperamento). Não é diagnóstico veterinário.
+                Segurança: se houver humanos ou não for um gato, a análise é interrompida.
+                Dica de qualidade: boa iluminação, rosto/corpo do gato bem enquadrado ⇒ resultados melhores.
+                Se algo falhar: tente novamente após alguns segundos ou envie uma imagem menor.
+              </p>
+            </div>
+            <form class="mt-6">
+              <label for="cat-photo" class="block text-gray-700 text-sm font-bold mb-2">Upload da Foto:</label>
+              <input type="file" id="cat-photo" accept="image/*"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              <button type="submit"
+                class="mt-4 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed"
+                disabled aria-label="Analisar foto do gatinho">
+                Analisar Foto
+                <i class="fas fa-brain ml-2" aria-hidden="true"></i>
+              </button>
+            </form>
+            <div id="identification-results" class="mt-6 p-4 bg-gray-50 rounded-lg hidden" aria-live="polite">
+              <h4 class="text-xl font-semibold mb-2">
+                Resultados da Análise:
+              </h4>
+              <p>
+                <strong>Idade Aproximada:</strong>
+                <span id="result-age">--</span>
+              </p>
+              <p>
+                <strong>Raça Potencial:</strong>
+                <span id="result-breed">--</span>
+              </p>
+              <p>
+                <strong>Traços de Personalidade:</strong>
+                <span id="result-personality">--</span>
+              </p>
+            </div>
+          </div>
+
+          <div id="donate-ad" class="tab-content p-4 hidden" role="tabpanel" aria-labelledby="donate-ad-tab">
+            <h3 id="donate-ad-tab" class="text-2xl font-comfortaa font-bold text-gray-800 mb-4">
+              Precisa Doar um Gatinho? Gere um Anúncio!
+              <i class="fas fa-bullhorn text-orange-500 ml-2" aria-hidden="true"></i>
+            </h3>
+            <p class="text-lg text-gray-700 mb-6">
+              Descreva o gatinho que você precisa doar e nossa IA gerará um
+              texto atraente para o anúncio.
+            </p>
+            <div class="mt-6">
+              <label for="cat-description" class="block text-gray-700 text-sm font-bold mb-2">Descreva o
+                Gatinho:</label>
+              <textarea id="cat-description" rows="6"
+                placeholder="Ex: Gatinho filhote, macho, 3 meses, pelagem preta e branca, muito dócil e brincalhão. Adora carinho e se dá bem com crianças e outros pets. Precisa de um lar urgente!"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+              <button id="generate-ad-btn"
+                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition duration-300"
+                aria-label="Gerar anúncio para doação de gatinho">
+                Gerar Anúncio
+                <i class="fas fa-magic ml-2" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div id="generated-ad-container" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 hidden">
+              <h4 class="text-xl font-semibold mb-2">Anúncio Gerado:</h4>
+              <p id="generated-ad-text" class="text-gray-800 leading-relaxed whitespace-pre-wrap"></p>
+              <button id="copy-ad-btn"
+                class="mt-4 bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full transition duration-300"
+                aria-label="Copiar anúncio gerado">
+                Copiar Anúncio
+                <i class="fas fa-copy ml-2" aria-hidden="true"></i>
+              </button>
+              <div id="copy-message" class="text-green-600 mt-2 hidden" aria-live="polite">
+                Copiado!
+              </div>
+            </div>
+            <div id="loading-indicator" class="mt-4 text-center text-gray-600 hidden" role="status"
+              aria-live="assertive">
+              <i class="fas fa-spinner fa-spin mr-2" aria-hidden="true"></i>
+              Gerando anúncio...
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer class="bg-gray-800 text-white p-6 text-center" role="contentinfo">
-      <p>
-        &copy; 2025 Izadora Pierette. Todos os direitos reservados. Feito com
-        <i class="fas fa-heart text-red-500" aria-hidden="true"></i> e muito
-        <i class="fas fa-cat text-green-400" aria-hidden="true"></i>.
-      </p>
-      <p class="text-sm text-gray-400 mt-2">
-        Este site foi desenvolvido com foco em acessibilidade, utilizando
-        técnicas para otimizar a experiência de usuários com deficiência visual.
-      </p>
-    </footer>
+    <section id="contact" class="py-16 section-animated bg-gradient-section" aria-labelledby="contato">
+      <div class="container mx-auto px-6 text-center">
+        <h2 id="contact-title" class="text-4xl font-comfortaa font-bold text-green-400 mb-12">
+          Me Encontre na Caixa de Papelão Digital
+          <i class="fas fa-box-open text-gray-400 ml-2" aria-hidden="true"></i>
+        </h2>
+        <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-xl">
+          <p class="text-lg mb-6">
+            Pronto para transformar suas ideias em realidade? Entre em contato
+            e vamos construir algo incrível juntos!
+          </p>
+          <form id="contact-form" class="space-y-6" aria-label="Formulário de Contato"
+            action="https://formspree.io/f/xzzvbyvv" method="POST">
+            <div>
+              <label for="name" class="block text-gray-300 text-sm font-bold mb-2 text-left">Nome:</label>
+              <input type="text" id="name" name="name"
+                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
+                placeholder="Seu nome" required />
+            </div>
+            <div>
+              <label for="email" class="block text-gray-300 text-sm font-bold mb-2 text-left">Email:</label>
+              <input type="email" id="email" name="email"
+                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
+                placeholder="seu.email@exemplo.com" required />
+            </div>
+            <div>
+              <label for="message" class="block text-gray-300 text-sm font-bold mb-2 text-left">Mensagem:</label>
+              <textarea id="message" name="message" rows="6"
+                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
+                placeholder="Sua mensagem..." required></textarea>
+            </div>
+            <div id="form-feedback" class="text-left"></div>
+            <button type="submit" id="submit-btn"
+              class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
+              aria-label="Enviar mensagem de contato">
+              Enviar Miaumensagem
+              <i class="fas fa-paper-plane ml-2" aria-hidden="true"></i>
+            </button>
+          </form>
+          <div class="mt-8 flex justify-center space-x-6" aria-label="Links para redes sociais e contato">
+            <a href="https://www.linkedin.com/in/izadora-cury-pierette-7a7754253/" target="_blank"
+              class="text-gray-300 hover:text-blue-400 transition duration-300 text-4xl" title="LinkedIn"
+              aria-label="Perfil de Izadora Pierette no LinkedIn">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/ipierette" target="_blank"
+              class="text-gray-300 hover:text-purple-400 transition duration-300 text-4xl" title="GitHub"
+              aria-label="Perfil de Izadora Pierette no GitHub">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <a href="https://drive.google.com/file/d/1JY_hUoeiW-IVyCuJ9yg9CS63QZ3GZzDq/view?usp=drive_link"
+              target="_blank" download="seu-curriculo-izadora.pdf"
+              class="text-gray-300 hover:text-red-400 transition duration-300 text-4xl" title="Download Currículo"
+              aria-label="Download do currículo de Izadora Pierette">
+              <i class="fas fa-file-download" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <button
-      id="back-to-top"
-      class="fixed bottom-6 right-6 bg-purple-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 transform scale-0 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75"
-      aria-label="Voltar ao início da página"
-    >
-      <i class="fas fa-arrow-up text-xl" aria-hidden="true"></i>
-    </button>
+  <footer class="bg-gray-800 text-white p-6 text-center" role="contentinfo">
+    <p>
+      &copy; 2025 Izadora Pierette. Todos os direitos reservados. Feito com
+      <i class="fas fa-heart text-red-500" aria-hidden="true"></i> e muito
+      <i class="fas fa-cat text-green-400" aria-hidden="true"></i>.
+    </p>
+    <p class="text-sm text-gray-400 mt-2">
+      Este site foi desenvolvido com foco em acessibilidade, utilizando
+      técnicas para otimizar a experiência de usuários com deficiência visual.
+    </p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="./js/config-particles.js"></script>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+  <button id="back-to-top"
+    class="fixed bottom-6 right-6 bg-purple-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 transform scale-0 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75"
+    aria-label="Voltar ao início da página">
+    <i class="fas fa-arrow-up text-xl" aria-hidden="true"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="./js/config-particles.js"></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
 </html>
