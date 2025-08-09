@@ -1,11 +1,13 @@
-// js/modules/adoptCat.js
-// Autônomo: sem imports de utils.js
-// Agora usando Netlify Function como fonte principal, mantendo fallbacks Google/OLX
+// public/js/modules/adoptCat.js
+// Origem principal: Netlify Function (SerpAPI)
+// Mantém fallbacks Google/OLX do front
+// Exporta initAdoptCat() para ser chamado pelo main.js
 
 const NETLIFY_FN = '/.netlify/functions/adopt-cat';
 
-// Helpers DOM
+// ---------- Helpers ----------
 const $ = (sel, root = document) => root.querySelector(sel);
+
 function el(tag, className = '', text = '') {
   const n = document.createElement(tag);
   if (className) n.className = className;
@@ -13,16 +15,15 @@ function el(tag, className = '', text = '') {
   return n;
 }
 
-// HTTP (substitui callN8nWebhook utils)
 async function postJSON(url, payload) {
   const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify(payload),
   });
   if (!res.ok) {
     const t = await res.text().catch(() => '');
-    throw new Error(`HTTP ${res.status} ${res.statusText} ${t ? '· ' + t : ''}`);
+    throw new Error(`HTTP ${res.status} ${res.statusText}${t ? ` · ${t}` : ''}`);
   }
   return res.json();
 }
@@ -38,16 +39,21 @@ function bestUrl(anuncio) {
   }
 }
 
+// ---------- Renderização ----------
 function renderCards(anuncios, container) {
   container.innerHTML = '';
   if (!Array.isArray(anuncios) || !anuncios.length) {
-    container.innerHTML = `<div class="text-sm text-gray-600">Não encontramos anúncios. Tente ajustar os filtros.</div>`;
+    container.innerHTML =
+      '<div class="text-sm text-gray-600">Não encontramos anúncios. Tente ajustar os filtros.</div>';
     return;
   }
 
   anuncios.forEach((a) => {
     const url = bestUrl(a);
-    const card = el('article', 'adopt-card p-4 rounded-xl shadow-sm border border-gray-200 mb-3 bg-white/70 dark:bg-zinc-900/50');
+    const card = el(
+      'article',
+      'adopt-card p-4 rounded-xl shadow-sm border border-gray-200 mb-3 bg-white/70 dark:bg-zinc-900/50'
+    );
     const h = el('h3', 'font-semibold text-lg mb-1', a.titulo || 'Anúncio de Adoção');
     const p = el('p', 'text-sm text-gray-700 dark:text-gray-300 mb-2', a.descricao || '');
     const meta = el('div', 'text-xs text-gray-500 mb-2', `Fonte: ${a.fonte || 'desconhecida'}`);
@@ -64,12 +70,10 @@ function renderCards(anuncios, container) {
 }
 
 /**
- * Mantém as buscas genéricas Google + OLX (se a Function falhar ou só devolver fallbacks)
+ * Mantém as buscas genéricas Google + OLX (usadas como fallback)
  */
 function renderFallbacksGoogleOlx({ color, localizacao }, container, append = false) {
-  const termo = encodeURIComponent(
-    `adoção de gatos ${color || ''} ${localizacao || ''}`.trim(),
-  );
+  const termo = encodeURIComponent(`adoção de gatos ${color || ''} ${localizacao || ''}`.trim());
 
   const fallbacks = [
     {
@@ -94,20 +98,23 @@ function renderFromFunctionResponse(data, container, payload) {
   if (data?.sucesso && Array.isArray(data.anuncios) && data.anuncios.length) {
     renderCards(data.anuncios, container);
 
-    // Se a function sinalizar que retornou só fallbacks internos,
-    // mantemos também as buscas genéricas já existentes:
+    // Se a função indicar que só trouxe fallbacks internos, adiciona também Google/OLX
     if (data.meta?.onlyFallbacks) {
-      // Mostra também os links Google/OLX sem apagar os cartões já renderizados
-      const sep = el('div', 'my-3 text-xs uppercase tracking-wide text-gray-500', 'Outras buscas rápidas');
+      const sep = el(
+        'div',
+        'my-3 text-xs uppercase tracking-wide text-gray-500',
+        'Outras buscas rápidas'
+      );
       container.appendChild(sep);
-      renderFallbacksGoogleOlx(payload, container, /*append*/ true);
+      renderFallbacksGoogleOlx(payload, container, /* append */ true);
     }
     return true;
   }
   return false;
 }
 
-function initAdoptCat() {
+// ---------- Entry point (usado pelo main.js) ----------
+export function initAdoptCat() {
   const form = document.getElementById('adopt-cat-form');
   const resultsContainer = document.getElementById('adopt-results');
   if (!form || !resultsContainer) return;
@@ -121,24 +128,23 @@ function initAdoptCat() {
       localizacao: $('#cat-location')?.value || '',
     };
 
-    resultsContainer.innerHTML = '<div class="text-sm text-gray-600">🔍 Buscando anúncios...</div>';
+    resultsContainer.innerHTML =
+      '<div class="text-sm text-gray-600">🔍 Buscando anúncios...</div>';
 
     try {
-      // 1) Tenta a Netlify Function (SerpAPI)
+      // 1) Tenta Netlify Function (SerpAPI)
       const data = await postJSON(NETLIFY_FN, payload);
 
       const ok = renderFromFunctionResponse(data, resultsContainer, payload);
       if (!ok) {
-        // 2) Se não vierem anúncios úteis, renderiza as buscas genéricas já existentes
+        // 2) Se não vierem anúncios úteis, usa fallbacks já existentes
         console.warn('Function sem anúncios válidos — caindo para Google/OLX.');
         renderFallbacksGoogleOlx(payload, resultsContainer);
       }
     } catch (err) {
       console.error('Erro ao buscar na Function:', err);
-      // 3) Em caso de erro na function, mantém fallbacks
+      // 3) Em erro, mantém fallbacks
       renderFallbacksGoogleOlx(payload, resultsContainer);
     }
   });
 }
-
-document.addEventListener('DOMContentLoaded', initAdoptCat);
