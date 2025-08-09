@@ -43,10 +43,19 @@ export function initIdentifyCat() {
   };
   const clearMsg = () => { msgBar.style.display = 'none'; msgBar.textContent = ''; };
 
+  // habilita/desabilita o botão trocando classes Tailwind visuais
+  const setBtnEnabled = (enabled) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = !enabled;
+    submitBtn.classList.toggle('opacity-50', !enabled);
+    submitBtn.classList.toggle('cursor-not-allowed', !enabled);
+    submitBtn.classList.toggle('hover:bg-purple-600', enabled);
+  };
+
   const setLoading = (is) => {
     if (!submitBtn) return;
-    submitBtn.disabled = is;
     submitBtn.textContent = is ? 'Analisando…' : 'Analisar Foto';
+    setBtnEnabled(!is); // durante loading fica desabilitado
   };
 
   const showResult = (json) => {
@@ -110,8 +119,6 @@ export function initIdentifyCat() {
     const n = (file.name || '').toLowerCase();
     return t.includes('heic') || t.includes('heif') || /\.hei[cf]$/.test(n);
   };
-  const isBrowserDecodable = (file) =>
-    ['image/jpeg','image/png','image/webp'].includes((file.type || '').toLowerCase());
 
   // --- Progressive enhancement do "Como funciona" ---
   (function enhanceHowItWorks() {
@@ -218,7 +225,7 @@ export function initIdentifyCat() {
   })();
 
   // --- Estado inicial do botão ---
-  if (submitBtn) submitBtn.disabled = true;
+  setBtnEnabled(false);
 
   // --- Arquivo selecionado (pode ser convertido/otimizado) ---
   let selectedFile = null;
@@ -229,7 +236,7 @@ export function initIdentifyCat() {
     resultsBox?.classList.add('hidden');
     selectedFile = null;
 
-    if (!fileInput.files?.[0]) { if (submitBtn) submitBtn.disabled = true; return; }
+    if (!fileInput.files?.[0]) { setBtnEnabled(false); return; }
     let file = fileInput.files[0];
 
     try {
@@ -247,7 +254,7 @@ export function initIdentifyCat() {
       if (file.size > SIZE_MAX) {
         setMsg('error', 'Arquivo grande demais. Reduza para no máximo 8 MB.');
         fileInput.value = '';
-        if (submitBtn) submitBtn.disabled = true;
+        setBtnEnabled(false);
         selectedFile = null;
         return;
       }
@@ -255,12 +262,12 @@ export function initIdentifyCat() {
       else setMsg('success', 'Imagem ok para análise.');
 
       selectedFile = file;
-      if (submitBtn) submitBtn.disabled = false;
+      setBtnEnabled(true);
     } catch (err) {
       console.error(err);
       setMsg('error', 'Não foi possível preparar a imagem. Tente outra foto ou converta para JPG/PNG/WebP.');
       fileInput.value = '';
-      if (submitBtn) submitBtn.disabled = true;
+      setBtnEnabled(false);
     }
   });
 
@@ -272,14 +279,14 @@ export function initIdentifyCat() {
 
     if (!selectedFile) {
       setMsg('error', 'Selecione uma imagem primeiro.');
-      if (submitBtn) submitBtn.disabled = true;
+      setBtnEnabled(false);
       return;
     }
 
     const file = selectedFile;
     if (file.size > SIZE_MAX) {
       setMsg('error', 'Arquivo grande demais. Reduza para no máximo 8 MB.');
-      if (submitBtn) submitBtn.disabled = true;
+      setBtnEnabled(false);
       return;
     }
     if (file.size > SIZE_WARN) setMsg('warn', 'Vai funcionar, mas pode demorar um pouco (imagem acima de 2 MB).');
