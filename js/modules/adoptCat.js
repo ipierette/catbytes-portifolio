@@ -3,7 +3,7 @@
 // Mantém fallbacks Google/OLX e aviso de qualidade
 // Exporta initAdoptCat() para ser chamado no main.js
 
-const NETLIFY_FN = '/.netlify/functions/adote-gatinho';
+const NETLIFY_FN = '/.netlify/functions/adopt-cat';
 
 // ---------------- Helpers ----------------
 const $ = (sel, root = document) => root.querySelector(sel);
