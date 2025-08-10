@@ -6,13 +6,16 @@
   "scripts": {
     "dev": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --watch",
     "build:css": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "meta:apply": "node scripts/optimize-meta.js --file=index.html --site=https://catbytes.netlify.app --image=/preview-final.png"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.16",
+    "cheerio": "^1.1.2",
+    "minimist": "^1.2.8",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.0"
   },

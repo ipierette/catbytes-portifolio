@@ -1,32 +1,56 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Izadora Pierette - CatBytes Portfolio</title>
+  <!-- Título e Descrição -->
+  <title>CatBytes — Portfólio Criativo de Front-end, Automação e IA</title>
+  <meta name="description" content="Conheça projetos que unem design moderno, código limpo e soluções com inteligência artificial e automação. Explore, inspire-se e veja o futuro em bytes.">
+  <link rel="canonical" href="https://catbytes.netlify.app/">
 
-  <!-- REMOVIDO: <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CatBytes">
+  <meta property="og:url" content="https://catbytes.netlify.app/">
+  <meta property="og:title" content="CatBytes — Portfólio Criativo de Front-end, Automação e IA">
+  <meta property="og:description" content="Conheça projetos que unem design moderno, código limpo e soluções com inteligência artificial e automação. Explore, inspire-se e veja o futuro em bytes.">
+  <meta property="og:image" content="https://catbytes.netlify.app/images/preview-final.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  <link rel="shortcut icon" href="./images/android-chrome-192x192.png" type="image/x-icon" sizes="124x124" />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CatBytes — Criatividade, Código e IA">
+  <meta name="twitter:description" content="Portfólio com projetos modernos, automação e IA. Explore agora!">
+  <meta name="twitter:image" content="https://catbytes.netlify.app/images/preview-final.png">
 
-  <!-- Tailwind compilado localmente -->
-  <link rel="stylesheet" href="./css/tailwind.css" />
+  <!-- WhatsApp / Messenger / Twitter compacto -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CatBytes — Criatividade, Código e IA">
+  <meta name="twitter:description" content="Portfólio com projetos modernos, automação e inteligência artificial. Explore agora!">
+  <meta name="twitter:image" content="https://catbytes.netlify.app/images/preview-final.png">
 
-  <!-- Seus estilos -->
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/responsive.css" />
+  <!-- Extras -->
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts e Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&amp;family=Inter:wght@300;400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/tailwind.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
 </head>
+
 
 
 <body class="font-inter text-gray-800 bg-gray-50">
   <header class="bg-gray-900 text-white p-4 shadow-lg sticky top-0 z-50">
     <nav class="container mx-auto flex justify-between items-center" aria-label="Navegação Principal">
       <a href="#" class="logo" aria-label="CatBytes - Voltar ao Início">
-        <img src="./images/logo300x100-fundo-escuro.svg" alt="ICP logo" class="h-17 inline-block"
-          style="height: 73.7px" />
+        <img src="./images/logo300x100-fundo-escuro.svg" alt="ICP logo" class="h-17 inline-block" style="height: 73.7px">
       </a>
       <ul class="hidden md:flex space-x-6 items-center">
         <li>
@@ -51,17 +75,13 @@
           <a href="#contact" class="hover:text-purple-500 transition duration-300">Contato</a>
         </li>
         <li>
-          <button id="theme-toggle"
-            class="text-white text-xl p-2 rounded-full hover:bg-gray-700 transition duration-300 focus:outline-none"
-            aria-label="Alternar tema claro/escuro">
+          <button id="theme-toggle" class="text-white text-xl p-2 rounded-full hover:bg-gray-700 transition duration-300 focus:outline-none" aria-label="Alternar tema claro/escuro">
             <i id="theme-icon" class="fas fa-moon"></i>
           </button>
         </li>
       </ul>
       <div class="md:hidden flex items-center space-x-4">
-        <button id="theme-toggle-mobile"
-          class="text-white text-xl p-2 rounded-full hover:bg-gray-700 transition duration-300 focus:outline-none"
-          aria-label="Alternar tema claro/escuro (mobile)">
+        <button id="theme-toggle-mobile" class="text-white text-xl p-2 rounded-full hover:bg-gray-700 transition duration-300 focus:outline-none" aria-label="Alternar tema claro/escuro (mobile)">
           <i id="theme-icon-mobile" class="fas fa-moon"></i>
         </button>
         <button id="menu-toggle" class="text-white focus:outline-none" aria-label="Abrir/Fechar menu de navegação">
@@ -69,8 +89,7 @@
         </button>
       </div>
     </nav>
-    <ul id="mobile-menu" class="hidden md:hidden flex flex-col items-center space-y-4 mt-4 bg-gray-800 p-4 rounded-lg"
-      aria-label="Menu de Navegação Mobile">
+    <ul id="mobile-menu" class="hidden md:hidden flex flex-col items-center space-y-4 mt-4 bg-gray-800 p-4 rounded-lg" aria-label="Menu de Navegação Mobile">
       <li>
         <a href="#hero" class="block py-2 hover:text-purple-500 transition duration-300">Início</a>
       </li>
@@ -95,8 +114,7 @@
     </ul>
   </header>
 
-  <div id="scroll-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-    aria-label="Progresso de rolagem da página"></div>
+  <div id="scroll-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de rolagem da página"></div>
 
   <main>
     <section id="hero" class="relative overflow-hidden section-animated" aria-labelledby="hero-title">
@@ -111,15 +129,13 @@
           Onde a paixão felina encontra o código impecável. Transformando
           ideias em soluções digitais, um miaucódigo por vez.
         </p>
-        <a href="#projects"
-          class="mt-8 inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
-          aria-label="Conheça meus projetos">
+        <a href="#projects" class="mt-8 inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" aria-label="Conheça meus projetos">
           Conheça meus projetos miau<i class="fas fa-paw ml-2"></i>
         </a>
       </div>
 
       <div class="hero-image-container relative">
-        <img src="./images/gato-sentado.webp" alt="gato sentado" class="mx-auto" />
+        <img src="./images/gato-sentado.webp" alt="gato sentado" class="mx-auto">
         <div id="cat-hover-area" aria-hidden="true"></div>
         <div id="cat-popup" class="cat-popup typing-effect" role="status" aria-live="polite">
           <p></p>
@@ -135,8 +151,7 @@
         </h2>
         <div class="flex flex-col md:flex-row items-center md:space-x-8">
           <div class="md:w-1/3 mb-8 md:mb-0">
-            <img src="./images/izadora.webp" alt="Foto de perfil de Izadora Pierette"
-              class="rounded-full shadow-lg mx-auto w-48 h-48 object-cover border-4 border-green-400" />
+            <img src="./images/izadora.webp" alt="Foto de perfil de Izadora Pierette" class="rounded-full shadow-lg mx-auto w-48 h-48 object-cover border-4 border-green-400">
           </div>
           <div class="md:w-2/3 text-left">
             <p class="text-lg leading-relaxed mb-4">
@@ -154,8 +169,7 @@
               tecnologia exige atenção aos detalhes, agilidade e uma pitada de
               criatividade para resolver os desafios mais intrigantes.
             </p>
-            <div class="mt-6 flex justify-center md:justify-start space-x-4"
-              aria-label="Ícones de habilidades e interesses">
+            <div class="mt-6 flex justify-center md:justify-start space-x-4" aria-label="Ícones de habilidades e interesses">
               <i class="fas fa-code text-green-500 text-3xl" title="Programação" aria-hidden="true"></i>
               <i class="fas fa-laptop-code text-blue-500 text-3xl" title="Desenvolvimento Web" aria-hidden="true"></i>
               <i class="fas fa-mug-hot text-orange-500 text-3xl" title="Café e Criatividade" aria-hidden="true"></i>
@@ -225,8 +239,7 @@
 
         <div class="project-gallery bg-white p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center">
           <div class="project-image-container md:w-1/2 mb-6 md:mb-0 md:mr-6">
-            <img id="project-image" src="https://placehold.co/600x400/36454F/FFFFFF?text=Projeto+1"
-              alt="Imagem do Projeto Destacado" class="rounded-lg shadow-md w-full h-auto object-cover" />
+            <img id="project-image" src="https://placehold.co/600x400/36454F/FFFFFF?text=Projeto+1" alt="Imagem do Projeto Destacado" class="rounded-lg shadow-md w-full h-auto object-cover">
           </div>
           <div class="project-details md:w-1/2 text-left">
             <h3 id="project-title" class="text-3xl font-comfortaa font-bold text-gray-800 mb-4">
@@ -238,31 +251,22 @@
               e interatividade.
             </p>
             <div class="project-links space-x-4">
-              <a href="#"
-                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                aria-label="Ver projeto ao vivo">
+              <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300" aria-label="Ver projeto ao vivo">
                 <i class="fas fa-eye mr-2" aria-hidden="true"></i> Ver Projeto
               </a>
-              <a href="#"
-                class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                aria-label="Ver código do projeto no GitHub">
+              <a href="#" class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full transition duration-300" aria-label="Ver código do projeto no GitHub">
                 <i class="fab fa-github mr-2" aria-hidden="true"></i> Código
               </a>
             </div>
           </div>
         </div>
 
-        <div class="project-navigation mt-8 flex justify-center items-center space-x-4"
-          aria-label="Navegação de projetos">
-          <button id="prev-project"
-            class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110"
-            aria-label="Projeto anterior">
+        <div class="project-navigation mt-8 flex justify-center items-center space-x-4" aria-label="Navegação de projetos">
+          <button id="prev-project" class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110" aria-label="Projeto anterior">
             <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
           </button>
           <div id="project-dots" class="flex space-x-2" role="group" aria-label="Indicadores de projeto"></div>
-          <button id="next-project"
-            class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110"
-            aria-label="Próximo projeto">
+          <button id="next-project" class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-300 transform hover:scale-110" aria-label="Próximo projeto">
             <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
           </button>
         </div>
@@ -277,11 +281,8 @@
         </h2>
         <div class="flex flex-col md:flex-row items-center md:space-x-8">
           <div class="md:w-1/2 mb-8 md:mb-0">
-            <img src="./images/axel-filhote.webp" alt="Foto de Axel quando filhote"
-              class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover mb-4 border-4 border-purple-500"
-              loading="lazy" />
-            <img src="./images/axel-adulto.webp" alt="Foto de Axel adulto"
-              class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover border-4 border-green-400" loading="lazy" />
+            <img src="./images/axel-filhote.webp" alt="Foto de Axel quando filhote" class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover mb-4 border-4 border-purple-500" loading="lazy">
+            <img src="./images/axel-adulto.webp" alt="Foto de Axel adulto" class="rounded-lg shadow-lg mx-auto w-80 h-auto object-cover border-4 border-green-400" loading="lazy">
           </div>
           <div class="md:w-1/2 text-left">
             <p class="text-lg leading-relaxed mb-4">
@@ -324,19 +325,13 @@
 
         <div class="ai-tabs bg-white p-6 rounded-lg shadow-xl">
           <div class="flex justify-center border-b border-gray-200 mb-6" role="tablist">
-            <button
-              class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-green-500 hover:text-green-500 transition duration-300 active-tab"
-              data-tab="adopt-cat" role="tab" aria-selected="true" aria-controls="adopt-cat">
+            <button class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-green-500 hover:text-green-500 transition duration-300 active-tab" data-tab="adopt-cat" role="tab" aria-selected="true" aria-controls="adopt-cat">
               Adote um Gatinho
             </button>
-            <button
-              class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-purple-500 hover:text-purple-500 transition duration-300"
-              data-tab="identify-cat" role="tab" aria-selected="false" aria-controls="identify-cat">
+            <button class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-purple-500 hover:text-purple-500 transition duration-300" data-tab="identify-cat" role="tab" aria-selected="false" aria-controls="identify-cat">
               Identificador de Gatinhos
             </button>
-            <button
-              class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-orange-500 hover:text-orange-500 transition duration-300"
-              data-tab="donate-ad" role="tab" aria-selected="false" aria-controls="donate-ad">
+            <button class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 border-b-2 border-transparent hover:border-orange-500 hover:text-orange-500 transition duration-300" data-tab="donate-ad" role="tab" aria-selected="false" aria-controls="donate-ad">
               Precisa Doar um Gatinho?
             </button>
           </div>
@@ -353,19 +348,19 @@
             <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-lg" role="alert">
               <p class="font-bold">Observação:</p>
               <p>
-                Esta funcionalidade de busca por anúncios de adoção foi implementada utilizando netlify functions, SerpApi e Gemini Api porém
+                Esta funcionalidade de busca por anúncios de adoção foi implementada utilizando netlify functions,
+                SerpApi e Gemini Api porém
                 atualmente existem limitaçães.<br>
                 Um banco de dados real de anúncios está sendo compilado e atualizado via scraping, api e manualmente.
                 Buscas mais precisas estarão disponíveis no futuro!.<br>
-                O score de confiabilidade da IA pode não estar 100% funcional pois os anúncios ainda não são totalmente precisos.
+                O score de confiabilidade da IA pode não estar 100% funcional pois os anúncios ainda não são totalmente
+                precisos.
               </p>
             </div>
             <form class="mt-6 space-y-4">
               <div>
                 <label for="cat-age" class="block text-gray-700 text-sm font-bold mb-2">Idade:</label>
-                <select id="cat-age"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  aria-required="true">
+                <select id="cat-age" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" aria-required="true">
                   <option value="">Selecione</option>
                   <option value="filhote">Filhote</option>
                   <option value="adulto">Adulto</option>
@@ -373,18 +368,14 @@
               </div>
               <div>
                 <label for="cat-color" class="block text-gray-700 text-sm font-bold mb-2">Cor do Pelo:</label>
-                <input type="text" id="cat-color" placeholder="Ex: Rajado, Preto, Branco"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                <input type="text" id="cat-color" placeholder="Ex: Rajado, Preto, Branco" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
               </div>
               <div>
                 <label for="cat-location" class="block text-gray-700 text-sm font-bold mb-2">Localização (Cidade/Estado
                   ou CEP):</label>
-                <input type="text" id="cat-location" placeholder="Ex: São Paulo, SP ou 01000-000"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                <input type="text" id="cat-location" placeholder="Ex: São Paulo, SP ou 01000-000" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
               </div>
-              <button type="submit"
-                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed"
-                disabled aria-label="Buscar gatinhos para adoção">
+              <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed" disabled="" aria-label="Buscar gatinhos para adoção">
                 Buscar Gatinhos
                 <i class="fas fa-search ml-2" aria-hidden="true"></i>
               </button>
@@ -404,7 +395,8 @@
             <div class="bg-purple-100 border-l-4 border-purple-500 text-purple-700 p-4 rounded-lg" role="alert">
               <p class="font-bold">Observação:</p>
               <p>
-                Fallback: Como funciona: Processamos sua foto sob demanda via Netlify Function (modelo Gemini). A primeira chamada pode levar alguns segundos (inicialização).
+                Fallback: Como funciona: Processamos sua foto sob demanda via Netlify Function (modelo Gemini). A
+                primeira chamada pode levar alguns segundos (inicialização).
                 Tamanhos: ideal 1–2 MB; máximo 8 MB. Formatos: JPG/PNG/WEBP.
                 Privacidade: a imagem é processada temporariamente para gerar o resultado e não é armazenada.
                 Limites e ética: os resultados são estimativas (idade aproximada, possíveis raças e indícios de
@@ -416,11 +408,8 @@
             </div>
             <form class="mt-6">
               <label for="cat-photo" class="block text-gray-700 text-sm font-bold mb-2">Upload da Foto:</label>
-              <input type="file" id="cat-photo" accept="image/*"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-              <button type="submit"
-                class="mt-4 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed"
-                disabled aria-label="Analisar foto do gatinho">
+              <input type="file" id="cat-photo" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <button type="submit" class="mt-4 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 opacity-50 cursor-not-allowed" disabled="" aria-label="Analisar foto do gatinho">
                 Analisar Foto
                 <i class="ml-2" aria-hidden="true"></i>
               </button>
@@ -456,12 +445,8 @@
             <div class="mt-6">
               <label for="cat-description" class="block text-gray-700 text-sm font-bold mb-2">Descreva o
                 Gatinho:</label>
-              <textarea id="cat-description" rows="6"
-                placeholder="Ex: Gatinho filhote, macho, 3 meses, pelagem preta e branca, possui necessidades especiais, muito dócil e brincalhão. Adora carinho e se dá bem com crianças e outros pets. Precisa de um lar urgente!"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
-              <button id="generate-ad-btn"
-                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                aria-label="Gerar anúncio para doação de gatinho">
+              <textarea id="cat-description" rows="6" placeholder="Ex: Gatinho filhote, macho, 3 meses, pelagem preta e branca, possui necessidades especiais, muito dócil e brincalhão. Adora carinho e se dá bem com crianças e outros pets. Precisa de um lar urgente!" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+              <button id="generate-ad-btn" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition duration-300" aria-label="Gerar anúncio para doação de gatinho">
                 Gerar Anúncio
                 <i class="fas fa-magic ml-2" aria-hidden="true"></i>
               </button>
@@ -469,9 +454,7 @@
             <div id="generated-ad-container" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 hidden">
               <h4 class="text-xl font-semibold mb-2">Anúncio Gerado:</h4>
               <p id="generated-ad-text" class="text-gray-800 leading-relaxed whitespace-pre-wrap"></p>
-              <button id="copy-ad-btn"
-                class="mt-4 bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full transition duration-300"
-                aria-label="Copiar anúncio gerado">
+              <button id="copy-ad-btn" class="mt-4 bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full transition duration-300" aria-label="Copiar anúncio gerado">
                 Copiar Anúncio
                 <i class="fas fa-copy ml-2" aria-hidden="true"></i>
               </button>
@@ -479,8 +462,7 @@
                 Copiado!
               </div>
             </div>
-            <div id="loading-indicator" class="mt-4 text-center text-gray-600 hidden" role="status"
-              aria-live="assertive">
+            <div id="loading-indicator" class="mt-4 text-center text-gray-600 hidden" role="status" aria-live="assertive">
               <i class="fas fa-spinner fa-spin mr-2" aria-hidden="true"></i>
               Gerando anúncio...
             </div>
@@ -500,49 +482,33 @@
             Pronto para transformar suas ideias em realidade? Entre em contato
             e vamos construir algo incrível juntos!
           </p>
-          <form id="contact-form" class="space-y-6" aria-label="Formulário de Contato"
-            action="https://formspree.io/f/xzzvbyvv" method="POST">
+          <form id="contact-form" class="space-y-6" aria-label="Formulário de Contato" action="https://formspree.io/f/xzzvbyvv" method="POST">
             <div>
               <label for="name" class="block text-gray-300 text-sm font-bold mb-2 text-left">Nome:</label>
-              <input type="text" id="name" name="name"
-                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
-                placeholder="Seu nome" required />
+              <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400" placeholder="Seu nome" required="">
             </div>
             <div>
               <label for="email" class="block text-gray-300 text-sm font-bold mb-2 text-left">Email:</label>
-              <input type="email" id="email" name="email"
-                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
-                placeholder="seu.email@exemplo.com" required />
+              <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400" placeholder="seu.email@exemplo.com" required="">
             </div>
             <div>
               <label for="message" class="block text-gray-300 text-sm font-bold mb-2 text-left">Mensagem:</label>
-              <textarea id="message" name="message" rows="6"
-                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400"
-                placeholder="Sua mensagem..." required></textarea>
+              <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 text-white placeholder-gray-400" placeholder="Sua mensagem..." required=""></textarea>
             </div>
             <div id="form-feedback" class="text-left"></div>
-            <button type="submit" id="submit-btn"
-              class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
-              aria-label="Enviar mensagem de contato">
+            <button type="submit" id="submit-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105" aria-label="Enviar mensagem de contato">
               Enviar Miaumensagem
               <i class="fas fa-paper-plane ml-2" aria-hidden="true"></i>
             </button>
           </form>
           <div class="mt-8 flex justify-center space-x-6" aria-label="Links para redes sociais e contato">
-            <a href="https://www.linkedin.com/in/izadora-cury-pierette-7a7754253/" target="_blank"
-              class="text-gray-300 hover:text-blue-400 transition duration-300 text-4xl" title="LinkedIn"
-              aria-label="Perfil de Izadora Pierette no LinkedIn">
+            <a href="https://www.linkedin.com/in/izadora-cury-pierette-7a7754253/" target="_blank" class="text-gray-300 hover:text-blue-400 transition duration-300 text-4xl" title="LinkedIn" aria-label="Perfil de Izadora Pierette no LinkedIn">
               <i class="fab fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="https://github.com/ipierette" target="_blank"
-              class="text-gray-300 hover:text-purple-400 transition duration-300 text-4xl" title="GitHub"
-              aria-label="Perfil de Izadora Pierette no GitHub">
+            <a href="https://github.com/ipierette" target="_blank" class="text-gray-300 hover:text-purple-400 transition duration-300 text-4xl" title="GitHub" aria-label="Perfil de Izadora Pierette no GitHub">
               <i class="fab fa-github" aria-hidden="true"></i>
             </a>
-            <a href="https://drive.google.com/file/d/1JY_hUoeiW-IVyCuJ9yg9CS63QZ3GZzDq/view?usp=drive_link"
-              target="_blank" download="seu-curriculo-izadora.pdf"
-              class="text-gray-300 hover:text-red-400 transition duration-300 text-4xl" title="Download Currículo"
-              aria-label="Download do currículo de Izadora Pierette">
+            <a href="https://drive.google.com/file/d/1JY_hUoeiW-IVyCuJ9yg9CS63QZ3GZzDq/view?usp=drive_link" target="_blank" download="seu-curriculo-izadora.pdf" class="text-gray-300 hover:text-red-400 transition duration-300 text-4xl" title="Download Currículo" aria-label="Download do currículo de Izadora Pierette">
               <i class="fas fa-file-download" aria-hidden="true"></i>
             </a>
           </div>
@@ -553,7 +519,7 @@
 
   <footer class="bg-gray-800 text-white p-6 text-center" role="contentinfo">
     <p>
-      &copy; 2025 Izadora Pierette. Todos os direitos reservados. Feito com
+      © 2025 Izadora Pierette. Todos os direitos reservados. Feito com
       <i class="fas fa-heart text-red-500" aria-hidden="true"></i> e muito
       <i class="fas fa-cat text-green-400" aria-hidden="true"></i>.
     </p>
@@ -563,15 +529,15 @@
     </p>
   </footer>
 
-  <button id="back-to-top"
-    class="fixed bottom-6 right-6 bg-purple-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 transform scale-0 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75"
-    aria-label="Voltar ao início da página">
+  <button id="back-to-top" class="fixed bottom-6 right-6 bg-purple-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 transform scale-0 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75" aria-label="Voltar ao início da página">
     <i class="fas fa-arrow-up text-xl" aria-hidden="true"></i>
   </button>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="./js/config-particles.js"></script>
   <script type="module" src="./js/main.js"></script>
-</body>
 
-</html>
+
+
+
+</body></html>
