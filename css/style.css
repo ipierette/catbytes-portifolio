@@ -22,14 +22,17 @@ body {
 ::-webkit-scrollbar {
     width: 0.75rem;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--color-green-eyes);
     border-radius: 0.625rem;
     border: 0.1875rem solid var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #256b46;
 }
@@ -47,30 +50,30 @@ body {
 
 /* Seção com fundo de gradiente */
 .bg-gradient-section {
-    background: radial-gradient(
-        ellipse at 60% 40%,
-        #ffffff 0%,
-        #f8fbff 40%,      /* branco gelo */
-        #eaf6ff 70%,      /* azul muito claro */
-        #e0e7ef 100%      /* azul acinzentado claro */
-    );
+    background: radial-gradient(ellipse at 60% 40%,
+            #ffffff 0%,
+            #f8fbff 40%,
+            /* branco gelo */
+            #eaf6ff 70%,
+            /* azul muito claro */
+            #e0e7ef 100%
+            /* azul acinzentado claro */
+        );
     box-shadow:
         0 4px 32px 0 rgba(200, 220, 255, 0.18),
-        0 0 80px 0 rgba(255,255,255,0.25) inset;
+        0 0 80px 0 rgba(255, 255, 255, 0.25) inset;
     transition: background 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 body.dark-mode .bg-gradient-section {
-   background: radial-gradient(
-        ellipse at 60% 40%,
-        #232946 0%,
-        #23263a 60%,
-        #1a1c28 100%
-    );
+    background: radial-gradient(ellipse at 60% 40%,
+            #232946 0%,
+            #23263a 60%,
+            #1a1c28 100%);
     box-shadow:
         0 2px 24px 0 rgba(30, 40, 80, 0.18),
-        0 0 60px 0 rgba(0,0,0,0.22) inset;
-    transition: background 0.6s cubic-bezier(.4,0,.2,1), box-shadow 0.6s cubic-bezier(.4,0,.2,1);
+        0 0 60px 0 rgba(0, 0, 0, 0.22) inset;
+    transition: background 0.6s cubic-bezier(.4, 0, .2, 1), box-shadow 0.6s cubic-bezier(.4, 0, .2, 1);
 }
 
 /* Regras de cor de texto para as seções temáticas */
@@ -78,6 +81,7 @@ section.bg-texture-1,
 section.bg-gradient-section {
     color: var(--text-primary);
 }
+
 body.dark-mode section.bg-texture-1,
 body.dark-mode section.bg-gradient-section {
     color: #FFFFFF;
@@ -94,10 +98,12 @@ header {
     color: var(--text-on-dark);
     transition: background-color 0.3s ease;
 }
+
 header nav ul li a {
     position: relative;
     text-decoration: none;
 }
+
 header nav ul li a::after {
     content: '';
     position: absolute;
@@ -108,6 +114,7 @@ header nav ul li a::after {
     background-color: var(--color-purple-accent);
     transition: width 0.3s ease-out;
 }
+
 header nav ul li a:hover::after {
     width: 100%;
 }
@@ -117,11 +124,14 @@ header nav ul li a:hover::after {
 /* Menu Mobile - Posição Absoluta */
 #mobile-menu {
     position: absolute;
-    top: 100%; 
-    left: 50%; /* Adicionado para centralizar */
-    transform: translateX(-50%); /* Adicionado para centralizar */
-    width: 40%; /* ALTERADO: De 100% para 40% (60% menor) */
-    z-index: 49; 
+    top: 100%;
+    left: 50%;
+    /* Adicionado para centralizar */
+    transform: translateX(-50%);
+    /* Adicionado para centralizar */
+    width: 40%;
+    /* ALTERADO: De 100% para 40% (60% menor) */
+    z-index: 49;
 }
 
 /* Seções */
@@ -131,17 +141,19 @@ section {
 }
 
 /* Títulos das Seções */
-#about h2, 
-#skills .section-title, 
-#projects h2, 
-#curiosities h2, 
-#ai-features h2, 
+#about h2,
+#skills .section-title,
+#projects h2,
+#curiosities h2,
+#ai-features h2,
 #contact h2 {
     color: var(--color-green-light);
 }
 
 /* Formulários */
-input, textarea, select {
+input,
+textarea,
+select {
     border: 1px solid var(--border-color);
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
@@ -150,10 +162,15 @@ input, textarea, select {
     background-color: var(--input-bg);
     color: var(--input-text);
 }
-input::placeholder, textarea::placeholder {
+
+input::placeholder,
+textarea::placeholder {
     color: var(--input-placeholder);
 }
-input:focus, textarea:focus, select:focus {
+
+input:focus,
+textarea:focus,
+select:focus {
     border-color: var(--color-green-eyes);
     box-shadow: 0 0 0 0.1875rem rgba(46, 139, 87, 0.2);
     outline: none;
@@ -182,6 +199,7 @@ input:focus, textarea:focus, select:focus {
     transform: scale(0);
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
 }
+
 #back-to-top.show {
     opacity: 1;
     visibility: visible;
@@ -196,6 +214,7 @@ input:focus, textarea:focus, select:focus {
     border-radius: 0.5rem;
     border-left: 0.25rem solid var(--color-green-light);
 }
+
 #form-feedback .error {
     color: #ff6b6b;
     background-color: rgba(255, 107, 107, 0.1);
@@ -216,23 +235,31 @@ input:focus, textarea:focus, select:focus {
 #hero {
     position: relative;
     min-height: calc(100vh - 5.625rem);
-    display: grid; /* MUDANÇA PRINCIPAL: Usando Grid */
+    display: grid;
+    /* MUDANÇA PRINCIPAL: Usando Grid */
     grid-template-columns: 1fr 1fr;
-    align-items: end; /* Alinha os itens (texto e gato) na base da seção */
-    padding: 2rem 5% 0; /* Adiciona 2rem em cima, 5% nas laterais e 0 EMBAIXO */
-    gap: 1.5rem; /* Espaçamento entre o texto e o gato */
+    align-items: end;
+    /* Alinha os itens (texto e gato) na base da seção */
+    padding: 2rem 5% 0;
+    /* Adiciona 2rem em cima, 5% nas laterais e 0 EMBAIXO */
+    gap: 1.5rem;
+    /* Espaçamento entre o texto e o gato */
 }
 
 #particles-js {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
 }
 
 .hero-text-container {
     text-align: left;
     z-index: 3;
-    justify-self: end; /* Alinha o bloco de texto à direita da sua coluna */
+    justify-self: end;
+    /* Alinha o bloco de texto à direita da sua coluna */
     padding-bottom: 2rem;
     align-self: center;
     max-width: 35rem;
@@ -244,20 +271,26 @@ input:focus, textarea:focus, select:focus {
     justify-self: center;
 }
 
-#hero h1, #hero p {
+#hero h1,
+#hero p {
     color: var(--text-primary);
 }
 
 #hero h1 .catbytes-gradient {
-    background-image: linear-gradient(
-        90deg,
-        #a21caf 0%,     /* Roxo vibrante */
-        #38bdf8 20%,    /* Azul piscina */
-        #22d3ee 40%,    /* Azul claro */
-        #4ade80 60%,    /* Verde neon */
-        #f472b6 80%,    /* Rosa chiclete */
-        #a21caf 100%    /* Roxo vibrante */
-    );
+    background-image: linear-gradient(90deg,
+            #a21caf 0%,
+            /* Roxo vibrante */
+            #38bdf8 20%,
+            /* Azul piscina */
+            #22d3ee 40%,
+            /* Azul claro */
+            #4ade80 60%,
+            /* Verde neon */
+            #f472b6 80%,
+            /* Rosa chiclete */
+            #a21caf 100%
+            /* Roxo vibrante */
+        );
     background-size: 300% auto;
     background-position: 0% 50%;
     -webkit-background-clip: text;
@@ -282,32 +315,35 @@ input:focus, textarea:focus, select:focus {
 #hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: -1;
-    background: radial-gradient(
-        ellipse at 60% 40%,
-        #ffffff 0%,
-        #f8fbff 40%,      /* branco gelo */
-        #eaf6ff 70%,      /* azul muito claro */
-        #e0e7ef 100%      /* azul acinzentado claro */
-    );
+    background: radial-gradient(ellipse at 60% 40%,
+            #ffffff 0%,
+            #f8fbff 40%,
+            /* branco gelo */
+            #eaf6ff 70%,
+            /* azul muito claro */
+            #e0e7ef 100%
+            /* azul acinzentado claro */
+        );
     box-shadow:
         0 4px 32px 0 rgba(200, 220, 255, 0.18),
-        0 0 80px 0 rgba(255,255,255,0.25) inset;
+        0 0 80px 0 rgba(255, 255, 255, 0.25) inset;
     transition: background 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 body.dark-mode #hero::before {
-   background: radial-gradient(
-        ellipse at 60% 40%,
-        #232946 0%,
-        #23263a 60%,
-        #1a1c28 100%
-    );
+    background: radial-gradient(ellipse at 60% 40%,
+            #232946 0%,
+            #23263a 60%,
+            #1a1c28 100%);
     box-shadow:
         0 2px 24px 0 rgba(30, 40, 80, 0.18),
-        0 0 60px 0 rgba(0,0,0,0.22) inset;
-    transition: background 0.6s cubic-bezier(.4,0,.2,1), box-shadow 0.6s cubic-bezier(.4,0,.2,1);
+        0 0 60px 0 rgba(0, 0, 0, 0.22) inset;
+    transition: background 0.6s cubic-bezier(.4, 0, .2, 1), box-shadow 0.6s cubic-bezier(.4, 0, .2, 1);
 }
 
 #hero::after {
@@ -323,7 +359,7 @@ body.dark-mode #hero::before {
 }
 
 body.dark-mode #hero::after {
-  filter: invert(1) brightness(1.5) drop-shadow(0 0 0.3125rem rgba(255, 255, 255, 0.7));
+    filter: invert(1) brightness(1.5) drop-shadow(0 0 0.3125rem rgba(255, 255, 255, 0.7));
 }
 
 a[aria-label="Conheça meus projetos"]:hover {
@@ -344,7 +380,10 @@ a[aria-label="Conheça meus projetos"]:hover {
 #cat-hover-area::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(138, 43, 226, 0.5) 0%, rgba(138, 43, 226, 0) 70%);
     animation: pulse 1s infinite;
@@ -391,7 +430,8 @@ body.dark-mode .cat-popup {
     left: -0.75rem;
     width: 1.25rem;
     height: 1.25rem;
-    background: var(--color-purple-accent); /* Roxo no modo claro */
+    background: var(--color-purple-accent);
+    /* Roxo no modo claro */
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
     transition: background-color 0.3s ease;
 }
@@ -404,7 +444,8 @@ body.dark-mode .cat-popup {
     left: -0.5rem;
     width: 1.125rem;
     height: 1.125rem;
-    background: #f0f0f0; /* Fundo claro no modo claro */
+    background: #f0f0f0;
+    /* Fundo claro no modo claro */
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
     z-index: 1;
     transition: background-color 0.3s ease;
@@ -414,6 +455,7 @@ body.dark-mode .cat-popup {
 body.dark-mode .cat-popup::after {
     background: var(--color-green-light);
 }
+
 body.dark-mode .cat-popup::before {
     background: #2D3748;
 }
@@ -422,3 +464,276 @@ body.dark-mode .cat-popup::before {
 #contact .max-w-2xl p {
     color: var(--text-on-dark);
 }
+
+/* ==== Dark Mode – Correções de contraste na seção IA ==== */
+body.dark-mode #ai-features .text-gray-700 {
+    color: #e5e7eb !important;
+}
+
+/* labels/descrições */
+body.dark-mode #ai-features label {
+    color: #e5e7eb !important;
+}
+
+body.dark-mode #ai-features input,
+body.dark-mode #ai-features textarea,
+body.dark-mode #ai-features select {
+    background: #0b1220;
+    /* slate quase preto */
+    color: #e5e7eb;
+    /* texto claro */
+    border-color: #334155;
+    /* slate-700 */
+}
+
+body.dark-mode #ai-features input::placeholder,
+body.dark-mode #ai-features textarea::placeholder {
+    color: #94a3b8;
+    /* slate-400 */
+}
+
+/* caixas de resultado/saída gerada */
+body.dark-mode #ai-features .bg-gray-50 {
+    background: #0b1220 !important;
+}
+
+body.dark-mode #ai-features .border-gray-200 {
+    border-color: #334155 !important;
+}
+
+body.dark-mode #ai-features #generated-ad-container,
+body.dark-mode #ai-features #identification-results {
+    color: #e5e7eb;
+    /* garante que o texto apareça */
+}
+
+/* botão/estado de loading podem continuar herdando as cores atuais */
+/* Adopt Cat – Melhor contraste nas descrições */
+#adopt-cat p.text-sm {
+    font-size: 1rem;
+    /* text-base */
+    line-height: 1.5;
+    color: #374151;
+    /* gray-700 */
+}
+
+body.dark-mode #adopt-cat p.text-sm {
+    color: #f3f4f6;
+    /* gray-100 - muito mais claro */
+}
+
+/* Opcional: dar um leve destaque visual */
+#adopt-cat p.text-sm {
+    font-weight: 500;
+    /* semi-bold */
+}
+
+/* ===== IA Felina – Dark mode (usa body.dark-mode) ===== */
+
+/* Título/descrição acima do formulário (ficavam apagados) */
+body.dark-mode #adopt-cat .text-lg,
+body.dark-mode #adopt-cat .text-gray-700,
+body.dark-mode #adopt-cat .text-gray-600 {
+    color: #e5e7eb !important;
+    /* cinza bem claro */
+}
+
+/* Labels do formulário */
+body.dark-mode #adopt-cat label {
+    color: #e5e7eb !important;
+}
+
+/* Campos do formulário */
+body.dark-mode #adopt-cat input,
+body.dark-mode #adopt-cat select,
+body.dark-mode #adopt-cat textarea {
+    background: #0b1220 !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode #adopt-cat input::placeholder,
+body.dark-mode #adopt-cat textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Cartão/resultado em fundo claro que sumia no dark */
+body.dark-mode #adopt-cat .bg-white\/70,
+body.dark-mode #adopt-cat .bg-gray-50 {
+    background: #0b1220 !important;
+}
+
+body.dark-mode #adopt-cat .border-gray-200 {
+    border-color: #334155 !important;
+}
+
+/* Descrição do anúncio – mais legível e com foco */
+#adopt-cat p.text-sm {
+    /* aplica no claro também */
+    font-size: 1rem;
+    /* text-base */
+    line-height: 1.6;
+    font-weight: 500;
+    color: #374151;
+    /* gray-700 */
+}
+
+body.dark-mode #adopt-cat p.text-sm {
+    color: #f3f4f6 !important;
+    /* gray-100 */
+}
+
+/* Score da IA (rótulo e número) */
+body.dark-mode #adopt-cat .score-label {
+    color: #fde68a !important;
+    /* yellow-200 */
+}
+
+body.dark-mode #adopt-cat .score-badge {
+    color: #facc15 !important;
+    /* yellow-400 */
+    border-color: #facc15 !important;
+}
+
+/* ===== Adopt Cat – textos que ainda ficavam apagados no dark ===== */
+
+/* Parágrafos e labels dentro do painel */
+body.dark-mode #adopt-cat p,
+body.dark-mode #adopt-cat label {
+    color: #e5e7eb !important;
+    /* cinza claro legível */
+    opacity: 1 !important;
+    /* anula qualquer opacidade herdada */
+}
+
+/* O parágrafo de instrução (tem .text-lg) */
+body.dark-mode #adopt-cat p.text-lg {
+    color: #e5e7eb !important;
+    font-weight: 500;
+    /* dá um pouco mais de presença */
+}
+
+/* Placeholders dos inputs */
+body.dark-mode #adopt-cat input::placeholder,
+body.dark-mode #adopt-cat textarea::placeholder {
+    color: #94a3b8 !important;
+    /* slate-400 */
+}
+
+/* Campos: garante contraste mesmo se outra regra interferir */
+body.dark-mode #adopt-cat input,
+body.dark-mode #adopt-cat select,
+body.dark-mode #adopt-cat textarea {
+    background: #0b1220 !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+
+/* ===== IA Felina (todas as abas) — Dark Mode ===== */
+
+/* 1) Card das abas */
+body.dark-mode #ai-features .ai-tabs {
+    background: #0f172a !important;
+    /* slate-900 */
+    color: #e5e7eb !important;
+    /* texto claro padrão */
+    border-color: #334155 !important;
+    /* bordas internas */
+}
+
+/* Separadores e linhas internas do card */
+body.dark-mode #ai-features .border-gray-200 {
+    border-color: #334155 !important;
+}
+
+/* Tabs (botões) */
+body.dark-mode #ai-features .tab-button {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode #ai-features .tab-button.active-tab {
+    color: #22c55e !important;
+    /* mesma cor do claro, mas visível */
+    border-bottom-color: #22c55e !important;
+}
+
+/* 2) Texto de instrução e labels do formulário (ficavam apagados) */
+body.dark-mode #adopt-cat p,
+body.dark-mode #adopt-cat label {
+    color: #e5e7eb !important;
+    opacity: 1 !important;
+}
+
+body.dark-mode #adopt-cat p.text-lg {
+    font-weight: 500;
+}
+
+/* Campos do formulário */
+body.dark-mode #adopt-cat input,
+body.dark-mode #adopt-cat select,
+body.dark-mode #adopt-cat textarea {
+    background: #0b1220 !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode #adopt-cat input::placeholder,
+body.dark-mode #adopt-cat textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* 3) Aviso azul (Observação) — manter legível no dark */
+body.dark-mode #adopt-cat [role="alert"] {
+    background: rgba(59, 130, 246, .12) !important;
+    /* azul translúcido */
+    border-color: #60a5fa !important;
+    /* azul-400 */
+    color: #dbeafe !important;
+    /* azul-100 */
+}
+
+body.dark-mode #adopt-cat [role="alert"] .font-bold {
+    color: #bfdbfe !important;
+    /* título mais forte */
+}
+
+/* 4) Cartões da lista + descrição do anúncio */
+body.dark-mode #adopt-cat .bg-white\/70,
+body.dark-mode #adopt-cat .bg-gray-50 {
+    background: #0b1220 !important;
+}
+
+body.dark-mode #adopt-cat .border-gray-200 {
+    border-color: #334155 !important;
+}
+
+#adopt-cat p.text-sm {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #374151;
+}
+
+body.dark-mode #adopt-cat p.text-sm {
+    color: #f3f4f6 !important;
+}
+
+/* 5) Score (já está ok, mantendo) */
+body.dark-mode #adopt-cat .score-label {
+    color: #fde68a !important;
+}
+
+body.dark-mode #adopt-cat .score-badge {
+    color: #facc15 !important;
+    border-color: #facc15 !important;
+}
+
+/* ===== IA Felina – Títulos das abas no dark mode ===== */
+body.dark-mode #ai-features h3 {
+    color: #e5e7eb !important;
+    /* gray-200 */
+}
+
+/* Lazy loading */
+img.lazy { filter: blur(8px); transition: filter .3s ease; }
+img.lazy-loaded { filter: none; }

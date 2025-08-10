@@ -57,7 +57,7 @@ function renderSadNotice(container) {
     'p',
     'text-sm',
     '😿 Ops! Apesar da quantidade enorme de fofuras sem lar, ainda não conseguimos selecionar anúncios confiáveis via automação agora. ' +
-      'Por favor, use os links genéricos abaixo para ao menos dar uma olhadinha.'
+    'Por favor, use os links genéricos abaixo para ao menos dar uma olhadinha.'
   );
   box.appendChild(p);
   container.appendChild(box);
@@ -131,16 +131,16 @@ export function renderAdoptionResults(container, data) {
     const titleText = anuncio.titulo || 'Anúncio de Adoção';
     const titleEl = href
       ? (() => {
-          const a = el(
-            'a',
-            'text-lg font-bold text-blue-700 group hover:underline focus:outline-green-500 mr-2 break-normal',
-            titleText
-          );
-          a.href = href;
-          a.target = '_blank';
-          a.rel = 'noopener noreferrer';
-          return a;
-        })()
+        const a = el(
+          'a',
+          'text-lg font-bold text-blue-700 group hover:underline focus:outline-green-500 mr-2 break-normal',
+          titleText
+        );
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        return a;
+      })()
       : el('span', 'text-lg font-bold', titleText);
 
     const source = el(
@@ -150,9 +150,10 @@ export function renderAdoptionResults(container, data) {
     );
     const desc = el(
       'p',
-      'text-sm text-gray-700 dark:text-gray-300 mt-1',
+      'text-base font-medium text-gray-800 dark:text-gray-100 mt-1 leading-relaxed',
       anuncio.descricao || ''
     );
+
 
     content.appendChild(titleEl);
     content.appendChild(source);

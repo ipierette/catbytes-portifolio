@@ -1,33 +1,34 @@
 // public/js/modules/projectsGallery.js
+import { registerLazy } from './lazyLoad.js';
 
 const projects = [
     {
-        title: "CatCommerce: Loja Online de Produtos Felinos",
-        description: "Um e-commerce responsivo para produtos de gatos, construído com HTML semântico, CSS avançado (Flexbox e Grid) e JavaScript para funcionalidades de carrinho e filtros.",
+        title: "Projeto Mario Memmory",
+        description: "Um jogo da memória interativo desenvolvido inicialmente em aula e posteriormente aprimorado de forma independente. Implementado com HTML5, CSS3 e JavaScript puro, inclui recursos como responsividade completa, áudio dinâmico, centralização de elementos para diferentes resoluções e layout otimizado para melhor experiência do usuário.",
         image: "./images/projeto-memoria.gif",
-        liveUrl: "#",
-        githubUrl: "#"
+        liveUrl: "https://ipierette.github.io/mario-memory/",
+        githubUrl: "https://github.com/ipierette/mario-memory"
     },
     {
-        title: "Miaulist: Gerenciador de Tarefas Diárias",
-        description: "Um aplicativo simples de lista de tarefas, desenvolvido com JavaScript puro para manipulação do DOM. Permite adicionar, remover e marcar tarefas como concluídas.",
-        image: "https://placehold.co/600x400/2F4F4F/FFFFFF?text=Miaulist",
-        liveUrl: "#",
-        githubUrl: "#"
+        title: "Agência XYZ",
+        description: "Landing page responsiva para uma agência fictícia de desenvolvimento web, criada com HTML5 semântico e CSS3 moderno. Possui design minimalista, seções bem estruturadas e tipografia legível, utilizando boas práticas de SEO e acessibilidade. O layout é totalmente adaptável a diferentes tamanhos de tela e foi otimizado para rápido carregamento, com foco em UI limpa e profissional.",
+        image: "./images/projeto-agenciaxyz.webp",
+        liveUrl: "https://ipierette.github.io/landing-page-xyz/",
+        githubUrl: "https://github.com/ipierette/landing-page-xyz"
     },
     {
-        title: "Blog Felino: Artigos e Dicas para Tutores",
-        description: "Um blog responsivo com artigos sobre cuidados com gatos. Utiliza HTML para estrutura, CSS para um design limpo e JS para carregamento dinâmico.",
-        image: "https://placehold.co/600x400/4A5568/FFFFFF?text=Blog+Felino",
-        liveUrl: "#",
-        githubUrl: "#"
+        title: "Chat-Bot Via Lactea",
+        description: "Aplicação front-end que simula um chatbot com personalidade dinâmica e respostas contextuais, utilizando HTML5, CSS3 e JavaScript puro. O projeto incorpora efeitos visuais interativos, animações suaves e design responsivo, proporcionando uma experiência de usuário envolvente. Inclui manipulação avançada do DOM e lógica modular para fácil expansão de funcionalidades.",
+        image: "./images/chatbot.webp",
+        liveUrl: "https://ipierette.github.io/chat-bot-via-lactea/",
+        githubUrl: "https://github.com/ipierette/chat-bot-via-lactea"
     },
     {
-        title: "Jogo da Memória: Gatos Programadores",
-        description: "Um divertido jogo da memória com tema de gatos e programação, focado na lógica de jogo e animações CSS para uma experiência envolvente.",
-        image: "https://placehold.co/600x400/36454F/FFFFFF?text=Jogo+Memoria",
-        liveUrl: "#",
-        githubUrl: "#"
+        title: "Mini-Portifólio",
+        description: "Versão compacta de um portfólio pessoal, criada com HTML5, CSS3 e JavaScript, focada em apresentar informações essenciais de forma clara e responsiva. Utiliza CSS modular para organização do código, animações leves para enriquecer a experiência e estrutura semântica otimizada para acessibilidade e SEO. Ideal para exibição rápida de habilidades e projetos em um formato enxuto e visualmente atraente",
+        image: "./images/projeto-miniport.gif",
+        liveUrl: "https://ipierette.github.io/mini-portifolio/",
+        githubUrl: "https://github.com/ipierette/mini-portifolio"
     }
 ];
 
@@ -42,11 +43,39 @@ function updateProjectContent(project) {
     const liveLink = document.querySelector('.project-links a[aria-label="Ver projeto ao vivo"]');
     const githubLink = document.querySelector('.project-links a[aria-label="Ver código do projeto no GitHub"]');
 
-    if (projectImage) projectImage.src = project.image;
+    // --- LAZY LOADING NA IMAGEM ---
+    if (projectImage) {
+        // evita layout shift (ajuste se seu card tiver outro tamanho)
+        if (!projectImage.width) projectImage.width = 600;
+        if (!projectImage.height) projectImage.height = 400;
+
+        projectImage.decoding = 'async';
+        projectImage.loading = 'lazy';
+        projectImage.classList.add('lazy');
+
+        // usa a imagem atual como placeholder, para não "piscar"
+        const placeholder = projectImage.currentSrc || projectImage.src || 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
+        projectImage.src = placeholder;
+
+        // aponta o recurso real (GIF ou WebP animado que você converteu)
+        projectImage.dataset.src = project.image;
+
+        // registra no observer
+        registerLazy(projectImage);
+    }
+
     if (projectTitle) projectTitle.textContent = project.title;
     if (projectDescription) projectDescription.textContent = project.description;
-    if (liveLink) liveLink.href = project.liveUrl;
-    if (githubLink) githubLink.href = project.githubUrl;
+    if (liveLink) {
+        liveLink.href = project.liveUrl;
+        liveLink.target = "_blank";
+        liveLink.rel = "noopener noreferrer";
+    }
+    if (githubLink) {
+        githubLink.href = project.githubUrl;
+        githubLink.target = "_blank";
+        githubLink.rel = "noopener noreferrer";
+    }
 }
 
 function createProjectDots() {

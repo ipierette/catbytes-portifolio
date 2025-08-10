@@ -8,6 +8,7 @@ import { initIATabs } from './modules/iaTabs.js';
 import { initAdoptCat } from './modules/adoptCat.js';
 import { initGenerateAd } from './modules/generateAd.js';
 import { initIdentifyCat } from './modules/identifyCat.js';
+import { initLazyLoad } from './modules/lazyLoad.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initUI();
@@ -20,4 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAdoptCat();
   initGenerateAd();
   initIdentifyCat();
+
+  initLazyLoad();
 });
