@@ -8,8 +8,8 @@ CatBytes é meu portfólio vivo (HTML, CSS, JS) com experimentos de IA e automa�
 
 ## 🔥 Preview
 ```md
-![Preview – Desktop](./images/desktop-catbytes.webp)
-![Preview – Mobile](./images/catbytes-mobile.webp)
+![Preview – Desktop](/images/desktop-catbytes.webp)
+![Preview – Mobile](/images/catbytes-mobile.webp)
 ```
 
 ---
@@ -220,6 +220,7 @@ npx playwright test
 ## 🗺️ Roadmap curto
 
 - [ ] Melhorar fallback e mensagens quando integrações externas não respondem (adopt-cat).
+- [ ] Limpar comentários dos arquivos, foram úteis durante o Desenvolvimento mas futuramente serão todos removidos.
 - [ ] Adicionar testes de acessibilidade (axe) e smoke tests de tabs.
 - [ ] Criar preset de animações com prefers-reduced-motion.
 - [ ] Exportar componentes para futura migração gradual para **React**.
