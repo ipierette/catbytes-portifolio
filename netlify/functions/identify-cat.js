@@ -1,11 +1,5 @@
-// netlify/functions/identify-cat.js
-// Identifica idade aproximada, possíveis raças e traços de personalidade de um gato a partir de uma foto
-// Entrada: multipart/form-data com o campo "data" (arquivo de imagem)
-// Saída: JSON em pt-BR { idade, racas[], personalidade[], observacoes }
-
 export const handler = async (event) => {
   try {
-    // CORS básico (opcional)
     if (event.httpMethod === "OPTIONS") {
       return {
         statusCode: 204,
@@ -34,28 +28,22 @@ export const handler = async (event) => {
     }
     const boundary = boundaryMatch[1];
 
-    // Lê o corpo (Netlify envia base64 quando é binário)
     const buf = Buffer.from(event.body || "", event.isBase64Encoded ? "base64" : "utf8");
     const raw = buf.toString("binary");
 
-    // Divide partes
     const parts = raw.split(`--${boundary}`);
     const filePart = parts.find((p) => /name="data"/.test(p));
     if (!filePart) return json(400, { error: "no_file_field_data" });
 
-    // Extrai mime
     const mimeMatch = filePart.match(/Content-Type:\s*([^\r\n]+)/i);
     const mime = mimeMatch ? mimeMatch[1].trim() : "image/jpeg";
 
-    // Extrai bytes (após cabeçalhos do part)
     const headerEnd = filePart.indexOf("\r\n\r\n");
     if (headerEnd === -1) return json(400, { error: "bad_part_format" });
 
-    // Conteúdo até antes do sufixo \r\n-- (quando existe)
     const binaryContent = filePart.slice(headerEnd + 4).replace(/\r\n--$/, "");
     const base64Data = Buffer.from(binaryContent, "binary").toString("base64");
 
-    // Monta prompt em PT-BR e exige JSON com chaves estáveis
     const body = {
       contents: [
         {
@@ -89,13 +77,11 @@ export const handler = async (event) => {
       return json(resp.status, { error: "gemini_request_failed", detail: data });
     }
 
-    // Extrai texto do candidato
     const text =
       data?.candidates?.[0]?.content?.parts?.map((p) => p.text).join("") ||
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "";
 
-    // Tenta parsear JSON rigoroso; se vier texto com JSON dentro, extrai o bloco
     let result;
     try {
       result = JSON.parse(text);
@@ -104,7 +90,6 @@ export const handler = async (event) => {
       result = m ? JSON.parse(m[0]) : { observacoes: text || "sem dados" };
     }
 
-    // Normaliza chaves (se o modelo devolver em EN por algum motivo)
     const normalized = {
       idade: result.idade || result.age || "--",
       racas: Array.isArray(result.racas) ? result.racas : Array.isArray(result.breeds) ? result.breeds : [],
@@ -122,7 +107,6 @@ export const handler = async (event) => {
   }
 };
 
-// util
 function json(status, obj, extraHeaders = {}) {
   return {
     statusCode: status,

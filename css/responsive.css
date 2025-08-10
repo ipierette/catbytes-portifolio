@@ -1,6 +1,41 @@
-/* =======================
-   RESPONSIVO MENU MOBILE
-   ======================= */
+
+@media (min-width: 75rem) and (max-width: 85.375rem) and (orientation: landscape) {
+
+  html { font-size: 13px !important; } /* 13/16 ≈ 81.25% */
+
+  header { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  header .logo img { height: 3.5rem !important; }
+  header nav ul.md\:flex { gap: 1rem; }
+
+  #hero .hero-text-container {
+    max-width: 58rem;
+    margin-inline: auto;
+    padding-block: 1.5rem;
+  }
+  #hero h1 {
+    font-size: clamp(2.25rem, 4.2vw, 3.2rem);
+    line-height: 1.1;
+  }
+  #hero p { font-size: clamp(1rem, 1.6vw, 1.125rem); }
+  #hero .hero-image-container img { max-width: 26.25rem; }
+
+  .cat-popup { transform: scale(0.9); top: -1.375rem; left: 58%; }
+
+  .section-animated { padding-block: 3.5rem !important; }
+  .section-title { font-size: 2.125rem; }
+  .section-desc  { font-size: 1rem; }
+
+  #projects .project-gallery { gap: 1rem; }
+  #projects #project-image   { max-height: 22.5rem; }
+
+  .skills-carousel { gap: 0.75rem; }
+  .skill-card { padding: 1rem; }
+  .skill-card-title { font-size: 1rem; }
+  .skill-card-description { font-size: 0.9rem; }
+
+  footer { padding-block: 1.25rem; }
+}
+
 
 @media (max-width: 65rem) {
     header nav ul.md\:flex {
@@ -40,9 +75,7 @@
 
 @media (max-width: 61rem) {
     .cat-popup {
-        /* ALTERADO: Mudei de '-15%' para '-30%' para subir mais 15% */
         top: -30%;
-        /* Mantido em 55% para a posição à direita */
         left: 55%;
         bottom: auto;
         right: auto;
@@ -50,12 +83,10 @@
         width: 16rem;
     }
 
-    /* 2. Ajusta a posição quando o balão está visível */
     .cat-popup.visible {
         transform: translateX(-50%) translateY(0);
     }
 
-    /* 3. Ajusta a "cauda" do balão para apontar para baixo */
     .cat-popup::after,
     .cat-popup::before {
         top: auto;
@@ -64,12 +95,10 @@
         clip-path: polygon(0 0, 100% 0, 50% 100%);
     }
 
-    /* Posição da cauda (borda) */
     .cat-popup::after {
         bottom: -0.75rem;
     }
 
-    /* Posição da cauda (preenchimento) */
     .cat-popup::before {
         bottom: -0.6rem;
     }
@@ -80,28 +109,25 @@
 
     .ai-tabs .tab-button {
         font-size: 0.7rem;
-        /* Reduz o tamanho da fonte */
     }
 }
 
 
 @media (max-width: 41.875rem) { /* 670px e menor */
 
-    /* 2. Esconde o conteúdo que vaza da "moldura" do carrossel */
     .skills-carousel-wrapper {
         overflow: hidden;
     }
 
-    /* 3. Garante que os botões fiquem sempre por cima dos cards */
     .carousel-btn {
         z-index: 10;
     }
-    
+
     .carousel-btn.prev {
-        left: 0.5rem; /* Estava -0.5rem */
+        left: 0.5rem;
     }
     .carousel-btn.next {
-        right: 0.5rem; /* Estava -0.5rem */
+        right: 0.5rem;
     }
 
    .skill-card {

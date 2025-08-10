@@ -1,4 +1,3 @@
-// Não use import no topo — faremos dynamic import dentro do handler.
 const MODEL = process.env.GEMINI_MODEL || "gemini-1.5-flash";
 const API_KEY = process.env.GEMINI_API_KEY;
 
@@ -45,7 +44,6 @@ function tryParseJSON(str) {
   return null;
 }
 
-// Formato compatível com Netlify Functions v1/v2
 export async function handler(event) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: JSON.stringify({ error: "Use POST" }) };
@@ -60,7 +58,6 @@ export async function handler(event) {
       return { statusCode: 400, body: JSON.stringify({ error: "description é obrigatório" }) };
     }
 
-    // Dynamic import evita conflito ESM/CJS no build
     const { GoogleGenerativeAI } = await import("@google/generative-ai");
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL });

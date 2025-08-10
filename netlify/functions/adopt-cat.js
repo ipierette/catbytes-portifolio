@@ -1,6 +1,3 @@
-// POST /.netlify/functions/adote-gatinho
-// Requer env SERPAPI_KEY
-
 const SOURCE_SITES = [
   'olx.com.br',
   'adoteumgatinho.org.br',
