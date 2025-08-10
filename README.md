@@ -151,10 +151,10 @@ Gera o texto do anúncio + estratégia de postagem.
 ```
 
 ### `POST /.netlify/functions/identify-cat`
-Recebe `multipart/form-data` com a imagem (campo `file`) e retorna **características do gato** (possível raça/traços).  
+Recebe `multipart/form-data` com a imagem (campo `file`) e retorna **características do gato** (possível raça/traços).
 > **Importante:** não coleta nem infere atributos sensíveis de pessoas.
 
-### `GET /.netlify/functions/adopt-cat?q=<termo>`
+### `POST /.netlify/functions/adopt-cat?q=<termo>`
 Busca/adquire resultados de adoção (quando houver integração) e faz **fallback** para links genéricos confiáveis.
 
 ---
