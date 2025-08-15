@@ -5,7 +5,7 @@ const projects = [
     {
         title: "Projeto Mario Memmory",
         description: "Um jogo da memória interativo desenvolvido inicialmente em aula e posteriormente aprimorado de forma independente. Implementado com HTML5, CSS3 e JavaScript puro, inclui recursos como responsividade completa, áudio dinâmico, centralização de elementos para diferentes resoluções e layout otimizado para melhor experiência do usuário.",
-        image: "./images/projeto-memoria.gif",
+        image: "./images/projeto-memoria.webp",
         liveUrl: "https://ipierette.github.io/mario-memory/",
         githubUrl: "https://github.com/ipierette/mario-memory"
     },
@@ -26,7 +26,7 @@ const projects = [
     {
         title: "Mini-Portifólio",
         description: "Versão compacta de um portfólio pessoal, criada com HTML5, CSS3 e JavaScript, focada em apresentar informações essenciais de forma clara e responsiva. Utiliza CSS modular para organização do código, animações leves para enriquecer a experiência e estrutura semântica otimizada para acessibilidade e SEO. Ideal para exibição rápida de habilidades e projetos em um formato enxuto e visualmente atraente",
-        image: "./images/projeto-miniport.gif",
+        image: "./images/projeto-miniport.webp",
         liveUrl: "https://ipierette.github.io/mini-portifolio/",
         githubUrl: "https://github.com/ipierette/mini-portifolio"
     }
@@ -36,6 +36,15 @@ let currentProjectIndex = 0;
 const projectDots = [];
 let activeDotIndex = 0;
 
+// --- helper de preload do próximo slide ---
+function preload(src) {
+  if (!src) return;
+  const img = new Image();
+  img.decoding = 'async';
+  img.loading = 'eager';
+  img.src = src;
+}
+
 function updateProjectContent(project) {
     const projectImage = document.getElementById('project-image');
     const projectTitle = document.getElementById('project-title');
@@ -43,25 +52,30 @@ function updateProjectContent(project) {
     const liveLink = document.querySelector('.project-links a[aria-label="Ver projeto ao vivo"]');
     const githubLink = document.querySelector('.project-links a[aria-label="Ver código do projeto no GitHub"]');
 
-    // --- LAZY LOADING NA IMAGEM ---
+    // --- CARREGAMENTO DO SLIDE ATUAL (EAGER) ---
+    // Substitui o antigo bloco de lazy aqui para evitar o atraso na animação
+    // (antes: loading="lazy", data-src e registerLazy) :contentReference[oaicite:1]{index=1}
     if (projectImage) {
         // evita layout shift (ajuste se seu card tiver outro tamanho)
-        if (!projectImage.width) projectImage.width = 600;
+        if (!projectImage.width)  projectImage.width  = 600;
         if (!projectImage.height) projectImage.height = 400;
 
+        // remover qualquer resquício de lazy do slide anterior
+        projectImage.classList.remove('lazy');
+        projectImage.removeAttribute('data-src');
+        projectImage.removeAttribute('loading');
+
+        // prioriza decodificação/pintura imediata
         projectImage.decoding = 'async';
-        projectImage.loading = 'lazy';
-        projectImage.classList.add('lazy');
+        projectImage.setAttribute('fetchpriority', 'high');
 
-        // usa a imagem atual como placeholder, para não "piscar"
-        const placeholder = projectImage.currentSrc || projectImage.src || 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
-        projectImage.src = placeholder;
+        // define o recurso real diretamente (GIF ou WebP animado)
+        projectImage.src = project.image;
 
-        // aponta o recurso real (GIF ou WebP animado que você converteu)
-        projectImage.dataset.src = project.image;
-
-        // registra no observer
-        registerLazy(projectImage);
+        // pré-carrega o PRÓXIMO slide em background
+        const nextIdx = (currentProjectIndex + 1) % projects.length;
+        const next = projects[nextIdx];
+        if (next?.image) preload(next.image);
     }
 
     if (projectTitle) projectTitle.textContent = project.title;
