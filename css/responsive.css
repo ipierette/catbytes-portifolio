@@ -1,42 +1,4 @@
 
-@media (min-width: 75rem) and (max-width: 85.375rem) and (orientation: landscape) {
-
-  html { font-size: 13px !important; } /* 13/16 ≈ 81.25% */
-
-  header { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-  header .logo img { height: 3.5rem !important; }
-  header nav ul.md\:flex { gap: 1rem; }
-
-  #hero .hero-text-container {
-    max-width: 58rem;
-    margin-inline: auto;
-    padding-block: 1.5rem;
-  }
-  #hero h1 {
-    font-size: clamp(2.25rem, 4.2vw, 3.2rem);
-    line-height: 1.1;
-  }
-  #hero p { font-size: clamp(1rem, 1.6vw, 1.125rem); }
-  #hero .hero-image-container img { max-width: 26.25rem; }
-
-  .cat-popup { transform: scale(0.9); top: -1.375rem; left: 58%; }
-
-  .section-animated { padding-block: 3.5rem !important; }
-  .section-title { font-size: 2.125rem; }
-  .section-desc  { font-size: 1rem; }
-
-  #projects .project-gallery { gap: 1rem; }
-  #projects #project-image   { max-height: 22.5rem; }
-
-  .skills-carousel { gap: 0.75rem; }
-  .skill-card { padding: 1rem; }
-  .skill-card-title { font-size: 1rem; }
-  .skill-card-description { font-size: 0.9rem; }
-
-  footer { padding-block: 1.25rem; }
-}
-
-
 @media (max-width: 65rem) {
     header nav ul.md\:flex {
         display: none !important;
