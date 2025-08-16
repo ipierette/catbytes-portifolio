@@ -8,8 +8,8 @@ CatBytes é meu portfólio vivo (HTML, CSS, JS) com experimentos de IA e automa�
 
 ## 🔥 Preview
 ```md
-![Preview – Desktop](/images/desktop-catbytes.webp)
-![Preview – Mobile](/images/catbytes-mobile.webp)
+![Preview – Desktop](./images/desktop-catbytes.png)
+![Preview – Mobile](./images/mobile-catbytes.png)
 ```
 
 ---
