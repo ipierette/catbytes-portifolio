@@ -7,10 +7,10 @@ CatBytes é meu portfólio vivo (HTML, CSS, JS) com experimentos de IA e automa�
 ---
 
 ## 🔥 Preview
-```md
+
 ![Preview — Desktop](https://raw.githubusercontent.com/ipierette/catbytes-portifolio/main/images/desktop-catbytes.png)
+
 ![Preview — Mobile](https://raw.githubusercontent.com/ipierette/catbytes-portifolio/main/images/mobile-catbytes.png)
-```
 ---
 
 ## ✨ Principais recursos
