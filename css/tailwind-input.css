@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @keyframes ripple {
+    0% { transform: scale(0); opacity: 0.5; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  .ripple {
+    animation: ripple 600ms linear;
+    transform: scale(0);
+    position: absolute;
+    border-radius: 9999px; /* full */
+    pointer-events: none;
+  }
+}
